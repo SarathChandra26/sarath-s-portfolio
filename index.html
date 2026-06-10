@@ -1,3 +1,7 @@
+Running command
+bash
+
+cat > /mnt/user-data/outputs/portfolio.html << 'HTMLEOF'
 <!DOCTYPE html>
 <html lang="en" data-theme="dark">
 <head>
@@ -10,7 +14,6 @@
   <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
   <script>emailjs.init('pvraxeuxSShJtvT0o');</script>
   <style>
-  /* ── THEME TOKENS ── */
   [data-theme="dark"]{
     --bg0:#060612;--bg1:#0b0b1f;--bg2:#0f0f28;
     --bgc:rgba(255,255,255,.028);--bgch:rgba(255,255,255,.055);
@@ -45,14 +48,10 @@
   ::-webkit-scrollbar{width:4px;}
   ::-webkit-scrollbar-track{background:var(--bg0);}
   ::-webkit-scrollbar-thumb{background:linear-gradient(var(--pp),var(--go));border-radius:4px;}
-
-  /* ── CURSOR ── */
   #cur{position:fixed;width:10px;height:10px;background:var(--gol);border-radius:50%;pointer-events:none;z-index:9999;transform:translate(-50%,-50%);transition:transform .15s,background .3s;box-shadow:0 0 14px var(--go);}
   #curR{position:fixed;width:38px;height:38px;border:1.5px solid rgba(124,58,237,.5);border-radius:50%;pointer-events:none;z-index:9998;transform:translate(-50%,-50%);transition:transform .3s;}
   .cg #cur{transform:translate(-50%,-50%) scale(2.5);background:var(--ppl);}
   .cg #curR{transform:translate(-50%,-50%) scale(1.6);border-color:var(--go);}
-
-  /* ── BG ── */
   #cvs{position:fixed;inset:0;z-index:0;pointer-events:none;}
   .gbg{position:fixed;inset:0;background-image:linear-gradient(var(--gl) 1px,transparent 1px),linear-gradient(90deg,var(--gl) 1px,transparent 1px);background-size:70px 70px;pointer-events:none;z-index:0;}
   .orb{position:fixed;border-radius:50%;filter:blur(140px);pointer-events:none;z-index:0;}
@@ -60,8 +59,6 @@
   .o2{width:500px;height:500px;background:var(--o2);bottom:-100px;left:-150px;animation:of 7s ease-in-out infinite alternate-reverse;}
   .o3{width:350px;height:350px;background:var(--o3);top:40%;right:10%;animation:of 11s ease-in-out infinite alternate;}
   @keyframes of{0%{transform:translate(0,0) scale(1);}100%{transform:translate(40px,-50px) scale(1.08);}}
-
-  /* ── LOADER ── */
   #ldr{position:fixed;inset:0;background:var(--bg0);z-index:2000;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:22px;transition:opacity .6s,visibility .6s;}
   #ldr.out{opacity:0;visibility:hidden;}
   .ll{font-family:'Cormorant Garamond',serif;font-size:3.2rem;font-weight:800;background:linear-gradient(135deg,var(--ppl),var(--go));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;}
@@ -70,8 +67,6 @@
   .lf{height:100%;background:linear-gradient(90deg,var(--pp),var(--go));border-radius:2px;width:0;animation:lfil 2s ease forwards;}
   @keyframes lfil{to{width:100%;}}
   .lp{font-family:'DM Mono',monospace;font-size:.78rem;color:var(--go);}
-
-  /* ── NAV ── */
   #nav{position:fixed;top:0;left:0;right:0;z-index:500;padding:18px 60px;display:flex;justify-content:space-between;align-items:center;backdrop-filter:blur(24px);background:var(--bgnav);border-bottom:1px solid var(--bdr);transition:var(--tr);}
   #nav.sc{padding:12px 60px;background:var(--bgnavs);box-shadow:0 4px 40px rgba(0,0,0,.2);}
   .nbrand{font-family:'Cormorant Garamond',serif;font-weight:800;font-size:1.7rem;background:linear-gradient(135deg,var(--ppl),var(--gol));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;text-decoration:none;cursor:none;}
@@ -89,8 +84,6 @@
   .nhire:hover{background:var(--go);color:var(--bg0);box-shadow:var(--shg);}
   .nham{display:none;flex-direction:column;gap:5px;cursor:pointer;background:none;border:none;padding:4px;}
   .nham span{width:22px;height:2px;background:var(--txt);border-radius:2px;transition:var(--tr);}
-
-  /* ── UTILS ── */
   section{position:relative;z-index:1;}
   .sp{padding:110px 0;}
   .lbl{font-family:'DM Mono',monospace;font-size:.7rem;letter-spacing:4px;text-transform:uppercase;color:var(--go);display:flex;align-items:center;gap:10px;margin-bottom:12px;}
@@ -102,8 +95,6 @@
   .rl{opacity:0;transform:translateX(-32px);transition:opacity .7s .1s ease,transform .7s .1s ease;}
   .rr{opacity:0;transform:translateX(32px);transition:opacity .7s .1s ease,transform .7s .1s ease;}
   .rv.up,.rl.up,.rr.up{opacity:1;transform:none;}
-
-  /* ── HERO ── */
   #hero{min-height:100vh;display:flex;align-items:center;padding:140px 0 80px;}
   .hw{display:grid;grid-template-columns:1fr 400px;gap:80px;align-items:center;}
   .hbadge{display:inline-flex;align-items:center;gap:10px;font-family:'DM Mono',monospace;font-size:.72rem;letter-spacing:3px;text-transform:uppercase;color:var(--go);padding:8px 20px;border:1px solid var(--bdrg);border-radius:50px;background:rgba(245,158,11,.05);margin-bottom:24px;animation:fu .8s ease both;}
@@ -112,14 +103,11 @@
   .hname{font-family:'Cormorant Garamond',serif;font-size:clamp(3rem,6vw,5.6rem);font-weight:800;line-height:1.05;margin-bottom:10px;animation:fu .8s .1s ease both;}
   .hname .n1{color:var(--txt);display:block;}
   .hname .n2{display:block;background:linear-gradient(135deg,var(--ppl) 10%,var(--gol) 90%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;}
-
-  /* TYPEWRITER ROLE */
   .hrolew{display:flex;align-items:center;gap:12px;margin-bottom:22px;animation:fu .8s .2s ease both;min-height:28px;}
   .hrolew::before{content:'';width:28px;height:1px;background:var(--ppl);flex-shrink:0;}
   .hrolet{font-family:'Syne',sans-serif;font-size:.95rem;font-weight:700;color:var(--ppl);}
   .hrolec{display:inline-block;width:2px;height:1em;background:var(--go);margin-left:3px;animation:blink .8s step-end infinite;vertical-align:text-bottom;}
   @keyframes blink{0%,100%{opacity:1;}50%{opacity:0;}}
-  /* SPEC BADGES */
   .spec-row{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:28px;animation:fu .8s .28s ease both;}
   .spec{padding:5px 14px;border-radius:50px;font-family:'DM Mono',monospace;font-size:.65rem;letter-spacing:1.5px;text-transform:uppercase;font-weight:600;border:1px solid;transition:var(--tr);cursor:default;}
   .sp-pp{background:rgba(124,58,237,.1);border-color:rgba(124,58,237,.3);color:var(--ppl);}
@@ -128,7 +116,6 @@
   .sp-ro{background:rgba(244,63,94,.08);border-color:rgba(244,63,94,.3);color:var(--ro);}
   .sp-gr{background:rgba(16,185,129,.08);border-color:rgba(16,185,129,.3);color:#10b981;}
   .spec:hover{transform:translateY(-2px) scale(1.06);box-shadow:0 4px 12px rgba(0,0,0,.2);}
-
   .hbio{font-size:1rem;line-height:1.85;color:var(--txt2);max-width:580px;margin-bottom:36px;animation:fu .8s .35s ease both;}
   .hbio strong{color:var(--ppl);}
   .hbtns{display:flex;gap:14px;flex-wrap:wrap;margin-bottom:44px;animation:fu .8s .5s ease both;}
@@ -141,7 +128,6 @@
   .hsoc{display:flex;gap:12px;animation:fu .8s .65s ease both;}
   .sa{width:42px;height:42px;display:flex;align-items:center;justify-content:center;border:1px solid var(--bdr);border-radius:10px;color:var(--txt2);text-decoration:none;font-size:.9rem;transition:var(--tr);background:var(--bgc);cursor:none;}
   .sa:hover{border-color:var(--ppl);color:var(--ppl);background:var(--ppg);transform:translateY(-3px) rotate(-6deg);}
-  /* Photo */
   .ps{position:relative;animation:fu .9s .2s ease both;}
   .pb{position:relative;width:370px;height:450px;margin:auto;border-radius:28px;background:linear-gradient(135deg,var(--pp),var(--go),var(--pp));padding:2px;animation:rh 5s linear infinite;}
   @keyframes rh{0%{filter:hue-rotate(0deg);}100%{filter:hue-rotate(20deg);}}
@@ -159,8 +145,6 @@
   .fbt{font-family:'DM Mono',monospace;font-size:.6rem;color:var(--txt2);text-transform:uppercase;letter-spacing:1.5px;}
   .fb-c{top:50%;right:-36px;transform:translateY(-50%);}
   @keyframes fu{from{opacity:0;transform:translateY(28px);}to{opacity:1;transform:translateY(0);}}
-
-  /* ── MARQUEE ── */
   #stk{padding:60px 0;background:var(--bgstk);border-top:1px solid var(--bdr);border-bottom:1px solid var(--bdr);transition:background .4s;}
   .sl{font-family:'DM Mono',monospace;font-size:.68rem;letter-spacing:4px;text-transform:uppercase;color:var(--txt3);text-align:center;margin-bottom:32px;}
   .mqw{overflow:hidden;position:relative;}
@@ -176,8 +160,6 @@
   [data-theme="light"] .tlo img{filter:brightness(1) saturate(1.1);}
   .tlo:hover img{filter:brightness(1);}
   .tlo span{font-family:'DM Mono',monospace;font-size:.58rem;color:var(--txt3);letter-spacing:1px;}
-
-  /* ── ABOUT ── */
   .ag{display:grid;grid-template-columns:1fr 1fr;gap:72px;align-items:start;}
   .ap{font-size:.97rem;line-height:1.9;color:var(--txt2);margin-bottom:18px;}
   .ap strong{color:var(--ppl);}
@@ -192,8 +174,6 @@
   .iri{width:38px;height:38px;background:linear-gradient(135deg,rgba(124,58,237,.18),rgba(245,158,11,.1));border-radius:9px;display:flex;align-items:center;justify-content:center;color:var(--go);font-size:.88rem;flex-shrink:0;}
   .irl{font-family:'DM Mono',monospace;font-size:.62rem;color:var(--txt3);text-transform:uppercase;letter-spacing:1.5px;margin-bottom:2px;}
   .irv{font-size:.88rem;color:var(--txt);}
-
-  /* ── SKILLS ── */
   .skc{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:22px;}
   .sk{padding:28px;border-radius:var(--r);background:var(--bgc);border:1px solid var(--bdr);position:relative;overflow:hidden;transition:var(--tr);}
   .sk::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,var(--pp),var(--go));opacity:0;transition:var(--tr);}
@@ -208,9 +188,8 @@
   .tp:hover{background:rgba(124,58,237,.22);border-color:var(--ppl);color:var(--ppl);transform:scale(1.06);}
   .tg{background:rgba(245,158,11,.08);border:1px solid rgba(245,158,11,.2);color:var(--go);}
   .tg:hover{background:rgba(245,158,11,.16);border-color:var(--gol);transform:scale(1.06);}
-  .tc{background:rgba(6,182,212,.08);border:1px solid rgba(6,182,212,.2);color:var(--cy);}
-  .tc:hover{background:rgba(6,182,212,.16);border-color:var(--cy);transform:scale(1.06);}
-  /* Rings */
+  .tc2{background:rgba(6,182,212,.08);border:1px solid rgba(6,182,212,.2);color:var(--cy);}
+  .tc2:hover{background:rgba(6,182,212,.16);border-color:var(--cy);transform:scale(1.06);}
   .rrow{display:flex;flex-wrap:wrap;gap:28px;justify-content:center;margin-top:52px;}
   .ri{display:flex;flex-direction:column;align-items:center;gap:10px;}
   .rsv{transform:rotate(-90deg);}
@@ -218,8 +197,6 @@
   .rfg{fill:none;stroke-width:6;stroke-linecap:round;transition:stroke-dashoffset 1.4s cubic-bezier(.23,1,.32,1);}
   .rlb{font-family:'DM Mono',monospace;font-size:.68rem;color:var(--txt2);letter-spacing:1px;text-transform:uppercase;text-align:center;}
   .rvl{font-family:'Cormorant Garamond',serif;font-size:1.3rem;font-weight:700;fill:var(--txt);text-anchor:middle;dominant-baseline:central;}
-
-  /* ── PROJECTS ── */
   .pf{display:flex;flex-wrap:wrap;gap:10px;margin-bottom:40px;}
   .pfb{padding:8px 20px;border-radius:50px;font-family:'Syne',sans-serif;font-size:.72rem;font-weight:600;letter-spacing:1px;text-transform:uppercase;border:1.5px solid var(--bdr);color:var(--txt2);background:transparent;cursor:pointer;transition:var(--tr);}
   .pfb:hover,.pfb.on{border-color:var(--ppl);color:var(--ppl);background:rgba(124,58,237,.1);}
@@ -230,12 +207,9 @@
   .pc:hover{border-color:var(--pp);transform:translateY(-6px);box-shadow:0 20px 60px rgba(0,0,0,.2),var(--shp);}
   .pc:hover::before{opacity:1;}
   .pc.hid{display:none;}
-
-  /* Project thumbnail SVG */
   .pthumb{width:100%;height:160px;overflow:hidden;flex-shrink:0;display:block;}
   .pthumb svg{width:100%;height:100%;}
   .pthumb img{width:100%;height:160px;object-fit:cover;display:block;}
-
   .pcb{padding:22px;display:flex;flex-direction:column;gap:12px;flex:1;position:relative;z-index:1;}
   .pctop{display:flex;justify-content:space-between;align-items:flex-start;gap:10px;}
   .pcnum{font-family:'Cormorant Garamond',serif;font-size:3.5rem;font-weight:800;color:rgba(124,58,237,.07);position:absolute;top:8px;right:16px;line-height:1;pointer-events:none;transition:var(--tr);}
@@ -247,6 +221,7 @@
   .cb-au{background:rgba(244,63,94,.12);color:var(--ro);border:1px solid rgba(244,63,94,.25);}
   .cb-fe{background:rgba(16,185,129,.12);color:#10b981;border:1px solid rgba(16,185,129,.25);}
   .cb-sy{background:rgba(168,85,247,.12);color:#c084fc;border:1px solid rgba(168,85,247,.25);}
+  .cb-da{background:rgba(245,158,11,.12);color:#fbbf24;border:1px solid rgba(245,158,11,.25);}
   .pls{display:flex;gap:8px;flex-shrink:0;}
   .pla{width:34px;height:34px;display:flex;align-items:center;justify-content:center;border:1px solid var(--bdr);border-radius:8px;color:var(--txt3);text-decoration:none;font-size:.82rem;transition:var(--tr);cursor:none;position:relative;z-index:1;}
   .pla:hover{border-color:var(--go);color:var(--go);background:rgba(245,158,11,.08);}
@@ -256,8 +231,6 @@
   .st{padding:3px 10px;border-radius:50px;font-family:'DM Mono',monospace;font-size:.6rem;background:rgba(245,158,11,.07);border:1px solid rgba(245,158,11,.15);color:var(--go);}
   .ghlink{display:inline-flex;align-items:center;gap:7px;font-family:'DM Mono',monospace;font-size:.65rem;color:var(--ppl);text-decoration:none;transition:color .3s;margin-top:4px;position:relative;z-index:1;cursor:none;}
   .ghlink:hover{color:var(--gol);}
-
-  /* ── EXPERIENCE ── */
   .tl{position:relative;padding-left:44px;}
   .tl::before{content:'';position:absolute;left:0;top:10px;width:1px;height:calc(100% - 20px);background:linear-gradient(180deg,var(--pp),var(--go),transparent);}
   .ti{position:relative;padding-bottom:48px;opacity:0;transform:translateX(-20px);transition:opacity .6s ease,transform .6s ease;}
@@ -279,26 +252,7 @@
   .ein{font-size:.92rem;color:var(--ppl);font-weight:500;margin-bottom:10px;}
   .emt{display:flex;gap:14px;flex-wrap:wrap;}
   .eb{padding:5px 14px;background:rgba(245,158,11,.08);border:1px solid var(--bdrg);border-radius:6px;font-family:'DM Mono',monospace;font-size:.68rem;color:var(--go);}
-
-  /* ── RESUME ── */
   #resume{background:var(--bg1);border-top:1px solid var(--bdr);border-bottom:1px solid var(--bdr);transition:background .4s;}
-  .rg{display:grid;grid-template-columns:1fr;gap:48px;align-items:start;max-width:600px;margin:0 auto;}
-  .rprev{background:var(--bgc);border:1px solid var(--bdr);border-radius:20px;overflow:hidden;transition:var(--tr);position:relative;}
-  .rprev:hover{border-color:var(--pp);box-shadow:var(--shp);}
-  .rmock{width:100%;background:white;padding:24px 22px;font-family:'Outfit',sans-serif;}
-  .rmh{border-bottom:3px solid #7c3aed;padding-bottom:12px;margin-bottom:12px;}
-  .rmn{font-family:'Cormorant Garamond',serif;font-size:1.5rem;font-weight:800;color:#1a0f40;margin-bottom:4px;}
-  .rmro{font-size:.72rem;color:#7c3aed;font-weight:700;letter-spacing:1px;text-transform:uppercase;margin-bottom:8px;}
-  .rmco{display:flex;gap:10px;flex-wrap:wrap;}
-  .rmc{font-size:.62rem;color:#4c3d7a;display:flex;align-items:center;gap:4px;}
-  .rmse{margin-bottom:10px;}
-  .rmsh{font-family:'Syne',sans-serif;font-size:.68rem;font-weight:800;color:#1a0f40;text-transform:uppercase;letter-spacing:2px;border-bottom:1px solid #e5e7eb;padding-bottom:3px;margin-bottom:7px;}
-  .rmit{font-size:.68rem;font-weight:700;color:#1a0f40;line-height:1.3;}
-  .rmis{font-size:.62rem;color:#7c3aed;margin-bottom:2px;}
-  .rmib{font-size:.6rem;color:#6b7280;line-height:1.4;margin-bottom:4px;}
-  .rmsr{display:flex;flex-wrap:wrap;gap:3px;margin-bottom:4px;}
-  .rmtg{padding:2px 6px;background:#f5f3ff;border:1px solid #d8d0ff;border-radius:4px;font-size:.56rem;color:#4c3d7a;}
-  .rover{position:absolute;bottom:0;left:0;right:0;height:100px;background:linear-gradient(transparent,rgba(255,255,255,.9));display:flex;align-items:flex-end;justify-content:center;padding-bottom:18px;}
   .rbadges{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:24px;}
   .rbadge{display:flex;align-items:center;gap:8px;padding:12px 18px;background:var(--bgc);border:1px solid var(--bdr);border-radius:12px;transition:var(--tr);}
   .rbadge:hover{border-color:var(--go);background:rgba(245,158,11,.04);}
@@ -311,16 +265,56 @@
   .rs:hover{border-color:var(--pp);transform:translateY(-3px);}
   .rsn{font-family:'Cormorant Garamond',serif;font-size:1.8rem;font-weight:800;background:linear-gradient(135deg,var(--ppl),var(--go));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;line-height:1;margin-bottom:4px;}
   .rsl{font-size:.72rem;color:var(--txt3);font-family:'DM Mono',monospace;}
-
-  /* ── CERT ── */
-  .cg2{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:18px;}
-  .cc{display:flex;align-items:center;gap:16px;padding:22px;background:var(--bgc);border:1px solid var(--bdr);border-radius:14px;transition:var(--tr);}
-  .cc:hover{border-color:var(--go);transform:translateY(-4px);box-shadow:var(--shg);}
-  .cci{width:50px;height:50px;border-radius:12px;background:linear-gradient(135deg,var(--ppd),rgba(245,158,11,.12));display:flex;align-items:center;justify-content:center;font-size:1.3rem;flex-shrink:0;}
-  .ccn{font-family:'Syne',sans-serif;font-size:.88rem;font-weight:700;color:var(--txt);margin-bottom:3px;}
-  .ccis{font-family:'DM Mono',monospace;font-size:.68rem;color:var(--txt3);}
-
-  /* ── CONTACT ── */
+  /* CERT SECTION */
+  .cg2{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:20px;}
+  .cc{display:flex;align-items:flex-start;gap:16px;padding:24px;background:var(--bgc);border:1px solid var(--bdr);border-radius:16px;transition:var(--tr);position:relative;overflow:hidden;flex-direction:column;gap:0;}
+  .cc::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;opacity:0;transition:opacity .4s;}
+  .cc:hover::before{opacity:1;}
+  .cc:hover{transform:translateY(-5px);background:var(--bgch);}
+  .cc-oracle::before{background:linear-gradient(90deg,#f80000,#f59e0b);}
+  .cc-oracle:hover{border-color:#f80000;box-shadow:0 0 30px rgba(248,0,0,.15);}
+  .cc-redhat::before{background:linear-gradient(90deg,#ee0000,#cc0000);}
+  .cc-redhat:hover{border-color:#ee0000;box-shadow:0 0 30px rgba(238,0,0,.15);}
+  .cc-ibm::before{background:linear-gradient(90deg,#1f70c1,#0062ff);}
+  .cc-ibm:hover{border-color:#1f70c1;box-shadow:0 0 30px rgba(31,112,193,.2);}
+  .cc-ea::before{background:linear-gradient(90deg,#ff4500,#ff6a00);}
+  .cc-ea:hover{border-color:#ff4500;box-shadow:0 0 30px rgba(255,69,0,.18);}
+  .cc-deloitte::before{background:linear-gradient(90deg,#86bc25,#43b02a);}
+  .cc-deloitte:hover{border-color:#86bc25;box-shadow:0 0 30px rgba(134,188,37,.18);}
+  .cc-ms::before{background:linear-gradient(90deg,#00a4ef,#0078d4);}
+  .cc-ms:hover{border-color:#00a4ef;box-shadow:0 0 30px rgba(0,164,239,.2);}
+  .cci{width:52px;height:52px;border-radius:13px;display:flex;align-items:center;justify-content:center;font-size:1.4rem;flex-shrink:0;border:1px solid var(--bdr);}
+  .cci-oracle{background:linear-gradient(135deg,rgba(248,0,0,.15),rgba(245,158,11,.1));border-color:rgba(248,0,0,.2);}
+  .cci-redhat{background:linear-gradient(135deg,rgba(238,0,0,.15),rgba(100,0,0,.1));border-color:rgba(238,0,0,.2);}
+  .cci-ibm{background:linear-gradient(135deg,rgba(31,112,193,.15),rgba(0,98,255,.1));border-color:rgba(31,112,193,.2);}
+  .cci-ea{background:linear-gradient(135deg,rgba(255,69,0,.15),rgba(255,106,0,.1));border-color:rgba(255,69,0,.2);}
+  .cci-deloitte{background:linear-gradient(135deg,rgba(134,188,37,.15),rgba(67,176,42,.1));border-color:rgba(134,188,37,.2);}
+  .cci-ms{background:linear-gradient(135deg,rgba(0,164,239,.15),rgba(0,120,212,.1));border-color:rgba(0,164,239,.2);}
+  .ccb{display:flex;flex-direction:column;gap:4px;flex:1;}
+  .ccn{font-family:'Syne',sans-serif;font-size:.9rem;font-weight:700;color:var(--txt);line-height:1.3;}
+  .ccis{font-family:'DM Mono',monospace;font-size:.68rem;color:var(--txt3);margin-bottom:6px;}
+  .cc-tasks{display:flex;flex-direction:column;gap:3px;margin-top:4px;}
+  .cc-task{font-size:.72rem;color:var(--txt2);display:flex;align-items:center;gap:6px;line-height:1.4;}
+  .cc-task::before{content:'▸';color:var(--ppl);font-size:.65rem;flex-shrink:0;}
+  .cc-date{display:inline-flex;align-items:center;gap:5px;font-family:'DM Mono',monospace;font-size:.6rem;color:var(--go);padding:3px 9px;background:rgba(245,158,11,.08);border:1px solid rgba(245,158,11,.2);border-radius:50px;margin-top:8px;width:fit-content;}
+  .cc-issuer{font-size:.7rem;color:var(--txt3);margin-top:3px;font-family:'DM Mono',monospace;}
+  .cc-top{display:flex;align-items:flex-start;gap:16px;margin-bottom:14px;}
+  .cc-preview{width:100%;border-radius:10px;overflow:hidden;border:1px solid var(--bdr);margin-bottom:12px;max-height:160px;display:flex;align-items:center;justify-content:center;background:var(--bg2);}
+  .cc-preview img{width:100%;height:160px;object-fit:cover;object-position:top;display:block;transition:transform .4s ease;}
+  .cc:hover .cc-preview img{transform:scale(1.03);}
+  .cc-viewbtn{display:inline-flex;align-items:center;gap:7px;padding:8px 18px;border-radius:7px;font-family:'Syne',sans-serif;font-size:.7rem;font-weight:700;letter-spacing:1.2px;text-transform:uppercase;text-decoration:none;border:1.5px solid;transition:all .3s;cursor:pointer;width:100%;justify-content:center;}
+  .cc-oracle .cc-viewbtn{border-color:rgba(248,0,0,.4);color:#f80000;background:rgba(248,0,0,.06);}
+  .cc-oracle .cc-viewbtn:hover{background:rgba(248,0,0,.15);box-shadow:0 4px 20px rgba(248,0,0,.2);}
+  .cc-redhat .cc-viewbtn{border-color:rgba(238,0,0,.4);color:#ee0000;background:rgba(238,0,0,.06);}
+  .cc-redhat .cc-viewbtn:hover{background:rgba(238,0,0,.15);box-shadow:0 4px 20px rgba(238,0,0,.2);}
+  .cc-ibm .cc-viewbtn{border-color:rgba(31,112,193,.4);color:#1f70c1;background:rgba(31,112,193,.06);}
+  .cc-ibm .cc-viewbtn:hover{background:rgba(31,112,193,.15);}
+  .cc-ea .cc-viewbtn{border-color:rgba(255,69,0,.4);color:#ff4500;background:rgba(255,69,0,.06);}
+  .cc-ea .cc-viewbtn:hover{background:rgba(255,69,0,.15);box-shadow:0 4px 20px rgba(255,69,0,.2);}
+  .cc-deloitte .cc-viewbtn{border-color:rgba(134,188,37,.4);color:#86bc25;background:rgba(134,188,37,.06);}
+  .cc-deloitte .cc-viewbtn:hover{background:rgba(134,188,37,.15);}
+  .cc-ms .cc-viewbtn{border-color:rgba(0,164,239,.4);color:#00a4ef;background:rgba(0,164,239,.06);}
+  .cc-ms .cc-viewbtn:hover{background:rgba(0,164,239,.15);box-shadow:0 4px 20px rgba(0,164,239,.2);}
   .cog{display:grid;grid-template-columns:1fr 1.1fr;gap:72px;align-items:start;}
   .ci{font-size:.97rem;line-height:1.85;color:var(--txt2);margin-bottom:32px;}
   .ci strong{color:var(--ppl);}
@@ -345,8 +339,6 @@
   .fmsg{display:none;padding:12px 18px;border-radius:9px;font-family:'DM Mono',monospace;font-size:.72rem;letter-spacing:1px;margin-top:10px;text-align:center;}
   .fmsg.ok{display:block;background:rgba(16,185,129,.1);border:1px solid rgba(16,185,129,.3);color:#10b981;}
   .fmsg.err{display:block;background:rgba(244,63,94,.1);border:1px solid rgba(244,63,94,.3);color:var(--ro);}
-
-  /* ── FOOTER ── */
   footer{border-top:1px solid var(--bdr);padding:36px 0;}
   .fi{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:16px;}
   .fbr{font-family:'Cormorant Garamond',serif;font-size:1.4rem;font-weight:800;background:linear-gradient(135deg,var(--ppl),var(--go));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;}
@@ -364,20 +356,17 @@
   #mm a{font-family:'Cormorant Garamond',serif;font-size:2.5rem;font-weight:700;color:var(--txt);text-decoration:none;transition:color .3s;}
   #mm a:hover{color:var(--gol);}
   .mclose{position:absolute;top:24px;right:24px;background:none;border:none;color:var(--txt2);font-size:1.4rem;cursor:pointer;}
-
-  @media(max-width:1100px){.hw{grid-template-columns:1fr;}.ps{display:none;}.ag{grid-template-columns:1fr;gap:40px;}.cog{grid-template-columns:1fr;}.rg{grid-template-columns:1fr;}}
+  @media(max-width:1100px){.hw{grid-template-columns:1fr;}.ps{display:none;}.ag{grid-template-columns:1fr;gap:40px;}.cog{grid-template-columns:1fr;}}
   @media(max-width:768px){#nav{padding:14px 24px;}#nav.sc{padding:10px 24px;}.ndsk,.nhire{display:none;}.nham{display:flex;}.pg{grid-template-columns:1fr;}.skc{grid-template-columns:1fr;}.ec{flex-direction:column;align-items:flex-start;gap:20px;}}
   @media(max-width:480px){.hbtns{flex-direction:column;}.spec-row{gap:6px;}}
   </style>
 </head>
 <body>
-
 <div id="ldr"><div class="ll">SC.</div><div class="ls">Initializing Portfolio</div><div class="lb"><div class="lf"></div></div><div class="lp" id="lpct">0%</div></div>
 <div id="cur"></div><div id="curR"></div>
 <canvas id="cvs"></canvas>
 <div class="gbg"></div>
 <div class="orb o1"></div><div class="orb o2"></div><div class="orb o3"></div>
-
 <div id="mm">
   <button class="mclose" onclick="cMob()"><i class="fas fa-times"></i></button>
   <a href="#about" onclick="cMob()">About</a>
@@ -387,7 +376,6 @@
   <a href="#resume" onclick="cMob()">Resume</a>
   <a href="#contact" onclick="cMob()">Contact</a>
 </div>
-
 <nav id="nav">
   <a href="#" class="nbrand">SC.</a>
   <div class="nlinks ndsk">
@@ -403,7 +391,7 @@
   </div>
 </nav>
 
-<!-- ═══ HERO ═══ -->
+<!-- HERO -->
 <section id="hero"><div class="container px-4"><div class="hw">
   <div>
     <div class="hbadge"><span class="pdot"></span>Open to Opportunities · CSE @ SRMAP</div>
@@ -411,18 +399,16 @@
       <span class="n1">Sarath Chandra</span>
       <span class="n2">Ummadishetty</span>
     </h1>
-    <!-- TYPEWRITER -->
     <div class="hrolew"><span class="hrolet" id="roleT"></span><span class="hrolec"></span></div>
-    <!-- SPEC BADGES -->
     <div class="spec-row">
       <span class="spec sp-pp"><i class="fas fa-layer-group" style="margin-right:5px;font-size:.6rem;"></i>Full-Stack</span>
       <span class="spec sp-cy"><i class="fas fa-brain" style="margin-right:5px;font-size:.6rem;"></i>AI / ML</span>
       <span class="spec sp-go"><i class="fas fa-eye" style="margin-right:5px;font-size:.6rem;"></i>OpenCV</span>
       <span class="spec sp-ro"><i class="fas fa-robot" style="margin-right:5px;font-size:.6rem;"></i>Automation</span>
       <span class="spec sp-gr"><i class="fas fa-server" style="margin-right:5px;font-size:.6rem;"></i>Backend</span>
-      <span class="spec sp-pp"><i class="fab fa-docker" style="margin-right:5px;font-size:.6rem;"></i>DevOps</span>
+      <span class="spec sp-go"><i class="fas fa-chart-bar" style="margin-right:5px;font-size:.6rem;"></i>Data Analytics</span>
     </div>
-    <p class="hbio">CSE undergraduate at <strong>SRMAP</strong> shipping real systems — from scalable <strong>FastAPI backends</strong> and <strong>OpenCV vision apps</strong> to <strong>n8n AI automation agents</strong> and <strong>React 3D portfolios</strong>. Oracle, Red Hat, EA &amp; Deloitte Certified. 10+ real GitHub projects.</p>
+    <p class="hbio">CSE undergraduate at <strong>SRMAP</strong> shipping real systems — from scalable <strong>FastAPI backends</strong> and <strong>OpenCV vision apps</strong> to <strong>n8n AI automation agents</strong>, <strong>Power BI dashboards</strong> and <strong>React 3D portfolios</strong>. Oracle, Red Hat, IBM, Microsoft &amp; EA Certified. 23+ real GitHub projects.</p>
     <div class="hbtns">
       <a href="#projects" class="btnp"><i class="fas fa-code"></i>GitHub Projects</a>
       <a href="#resume" class="btng"><i class="fas fa-download"></i>Resume</a>
@@ -446,7 +432,7 @@
       <div><div class="fbl">University</div><div class="fbv">SRMAP, Amaravati</div></div>
     </div>
     <div class="fbadge fb-b">
-      <div class="fbn">10+</div><div class="fbt">Live Repos</div>
+      <div class="fbn">23+</div><div class="fbt">Live Repos</div>
     </div>
     <div class="fbadge fb-c">
       <div class="fbi" style="background:linear-gradient(135deg,#ea580c,#f59e0b);"><i class="fab fa-python"></i></div>
@@ -455,24 +441,24 @@
   </div>
 </div></div></section>
 
-<!-- ═══ MARQUEE ═══ -->
+<!-- MARQUEE -->
 <section id="stk"><div class="container px-4">
   <div class="sl">Technologies I Work With</div>
   <div class="mqw"><div class="mqt" id="mqt"></div></div>
 </div></section>
 
-<!-- ═══ ABOUT ═══ -->
+<!-- ABOUT -->
 <section id="about" class="sp"><div class="container px-4">
   <div class="rv"><div class="lbl">Who I Am</div><h2 class="sh">Builder Across <span>Disciplines</span></h2><div class="dv"></div></div>
   <div class="ag">
     <div class="rl">
-      <p class="ap">I'm <strong>Sarath Chandra Ummadishetty</strong>, a full-stack CSE developer at <strong>SRM Institute of Science &amp; Technology, Amaravati</strong>. I build across the entire stack — from async Python backends to OpenCV vision pipelines, n8n automation agents, React frontends, and Docker DevOps setups.</p>
-      <p class="ap">My GitHub has <strong>23 public repositories</strong> spanning backend APIs, computer vision, AI automation, systems programming in C++, and 3D web development. Every project is real, shipped, and open source.</p>
-      <p class="ap">Off-code, I lead PR &amp; Marketing at the <strong>Microsoft Student Committee</strong>, organizing 32-hour national hackathons. Elected <strong>Student Representative</strong> on the Study Board. Certified by <strong>Oracle, Red Hat, EA &amp; Deloitte</strong>. Learning Japanese 🇯🇵.</p>
+      <p class="ap">I'm <strong>Sarath Chandra Ummadishetty</strong>, a full-stack CSE developer at <strong>SRM Institute of Science &amp; Technology, Amaravati</strong>. I build across the entire stack — from async Python backends to OpenCV vision pipelines, n8n automation agents, Power BI dashboards, React frontends, and Docker DevOps setups.</p>
+      <p class="ap">My GitHub has <strong>23 public repositories</strong> spanning backend APIs, computer vision, AI automation, data analytics platforms, systems programming in C++, and 3D web development. Every project is real, shipped, and open source.</p>
+      <p class="ap">Off-code, I lead PR &amp; Marketing at the <strong>Microsoft Student Committee</strong>, organizing 32-hour national hackathons. Elected <strong>Student Representative</strong> on the Study Board. Certified by <strong>Oracle, Red Hat, IBM, Microsoft &amp; EA</strong>. Learning Japanese 🇯🇵.</p>
       <div class="asg">
-        <div class="ast rv"><div class="asn">7.73</div><div class="asl">CGPA / 10</div></div>
-        <div class="ast rv"><div class="asn">23</div><div class="asl">GitHub Repos</div></div>
-        <div class="ast rv"><div class="asn">5</div><div class="asl">Certifications</div></div>
+        <div class="ast rv"><div class="asn">7.9</div><div class="asl">CGPA / 10</div></div>
+        <div class="ast rv"><div class="asn">23+</div><div class="asl">GitHub Repos</div></div>
+        <div class="ast rv"><div class="asn">8</div><div class="asl">Certifications</div></div>
         <div class="ast rv"><div class="asn">3</div><div class="asl">Languages Spoken</div></div>
       </div>
     </div>
@@ -489,23 +475,23 @@
   </div>
 </div></section>
 
-<!-- ═══ SKILLS ═══ -->
+<!-- SKILLS -->
 <section id="skills" class="sp" style="padding-top:0"><div class="container px-4">
   <div class="rv"><div class="lbl">Technical Arsenal</div><h2 class="sh">Skills &amp; <span>Technologies</span></h2><div class="dv"></div></div>
   <div class="skc">
-    <div class="sk rv"><div class="skh"><div class="ski"><i class="fas fa-code"></i></div><div class="skn">Programming Languages</div></div><div class="tw"><span class="tag tg">Python ★ Primary</span><span class="tag tp">C++</span><span class="tag tp">C</span><span class="tag tp">Java</span><span class="tag tc">SQL</span></div></div>
-    <div class="sk rv"><div class="skh"><div class="ski"><i class="fas fa-server"></i></div><div class="skn">Backend &amp; APIs</div></div><div class="tw"><span class="tag tg">FastAPI</span><span class="tag tp">Async SQLAlchemy</span><span class="tag tp">REST API</span><span class="tag tp">JWT/OAuth2</span><span class="tag tc">WebSockets</span><span class="tag tp">ARQ</span></div></div>
-    <div class="sk rv"><div class="skh"><div class="ski"><i class="fas fa-eye"></i></div><div class="skn">Computer Vision &amp; AI</div></div><div class="tw"><span class="tag tg">OpenCV ★</span><span class="tag tp">TensorFlow</span><span class="tag tp">MediaPipe</span><span class="tag tc">Scikit-learn</span><span class="tag tp">CNN</span><span class="tag tp">Speed Detection</span></div></div>
-    <div class="sk rv"><div class="skh"><div class="ski"><i class="fas fa-robot"></i></div><div class="skn">AI Agents &amp; Automation</div></div><div class="tw"><span class="tag tg">n8n ★</span><span class="tag tp">Google APIs</span><span class="tag tp">OneDrive</span><span class="tag tc">Slack API</span><span class="tag tp">IMAP/Gmail</span><span class="tag tp">Batch Processing</span></div></div>
-    <div class="sk rv"><div class="skh"><div class="ski"><i class="fas fa-layer-group"></i></div><div class="skn">Full-Stack &amp; Frontend</div></div><div class="tw"><span class="tag tp">React</span><span class="tag tp">Three.js</span><span class="tag tp">Vite</span><span class="tag tp">Streamlit</span><span class="tag tc">HTML5/CSS3</span><span class="tag tc">Bootstrap 5</span></div></div>
-    <div class="sk rv"><div class="skh"><div class="ski"><i class="fas fa-database"></i></div><div class="skn">Databases &amp; Caching</div></div><div class="tw"><span class="tag tg">PostgreSQL</span><span class="tag tp">Redis</span><span class="tag tp">SQLAlchemy</span><span class="tag tc">JSONB/GIN Index</span><span class="tag tp">DB Partitioning</span></div></div>
-    <div class="sk rv"><div class="skh"><div class="ski"><i class="fab fa-docker"></i></div><div class="skn">DevOps &amp; Deployment</div></div><div class="tw"><span class="tag tg">Docker</span><span class="tag tp">Prometheus</span><span class="tag tp">Firebase</span><span class="tag tc">Vercel</span><span class="tag tp">CI/CD</span><span class="tag tp">Linux/Unix</span><span class="tag tp">Git</span></div></div>
-    <div class="sk rv"><div class="skh"><div class="ski"><i class="fas fa-microchip"></i></div><div class="skn">Systems &amp; C++</div></div><div class="tw"><span class="tag tg">C++ OOP</span><span class="tag tp">Fleet Management</span><span class="tag tp">Data Structures</span><span class="tag tc">Algorithms</span><span class="tag tp">System Design</span></div></div>
+    <div class="sk rv"><div class="skh"><div class="ski"><i class="fas fa-code"></i></div><div class="skn">Programming Languages</div></div><div class="tw"><span class="tag tg">Python ★ Primary</span><span class="tag tp">C++</span><span class="tag tp">C</span><span class="tag tp">Java</span><span class="tag tc2">SQL</span></div></div>
+    <div class="sk rv"><div class="skh"><div class="ski"><i class="fas fa-server"></i></div><div class="skn">Backend &amp; APIs</div></div><div class="tw"><span class="tag tg">FastAPI</span><span class="tag tp">Async SQLAlchemy</span><span class="tag tp">REST API</span><span class="tag tp">JWT/OAuth2</span><span class="tag tc2">WebSockets</span><span class="tag tp">ARQ</span></div></div>
+    <div class="sk rv"><div class="skh"><div class="ski"><i class="fas fa-chart-bar"></i></div><div class="skn">Data Analytics &amp; BI</div></div><div class="tw"><span class="tag tg">Power BI ★</span><span class="tag tp">Pandas</span><span class="tag tp">NumPy</span><span class="tag tc2">Statistical Analysis</span><span class="tag tp">ETL Pipelines</span><span class="tag tp">KPI Dashboards</span></div></div>
+    <div class="sk rv"><div class="skh"><div class="ski"><i class="fas fa-eye"></i></div><div class="skn">Computer Vision &amp; AI</div></div><div class="tw"><span class="tag tg">OpenCV ★</span><span class="tag tp">TensorFlow</span><span class="tag tp">MediaPipe</span><span class="tag tc2">Scikit-learn</span><span class="tag tp">CNN</span></div></div>
+    <div class="sk rv"><div class="skh"><div class="ski"><i class="fas fa-robot"></i></div><div class="skn">AI Agents &amp; Automation</div></div><div class="tw"><span class="tag tg">n8n ★</span><span class="tag tp">Google APIs</span><span class="tag tp">OneDrive</span><span class="tag tc2">Slack API</span><span class="tag tp">IMAP/Gmail</span></div></div>
+    <div class="sk rv"><div class="skh"><div class="ski"><i class="fas fa-database"></i></div><div class="skn">Databases &amp; Engineering</div></div><div class="tw"><span class="tag tg">PostgreSQL</span><span class="tag tp">Redis</span><span class="tag tp">SQLite</span><span class="tag tc2">Data Warehousing</span><span class="tag tp">JSONB/GIN</span></div></div>
+    <div class="sk rv"><div class="skh"><div class="ski"><i class="fab fa-docker"></i></div><div class="skn">DevOps &amp; Deployment</div></div><div class="tw"><span class="tag tg">Docker</span><span class="tag tp">Prometheus</span><span class="tag tp">Firebase</span><span class="tag tc2">Vercel</span><span class="tag tp">CI/CD</span><span class="tag tp">Linux/Unix</span></div></div>
+    <div class="sk rv"><div class="skh"><div class="ski"><i class="fas fa-layer-group"></i></div><div class="skn">Full-Stack &amp; Frontend</div></div><div class="tw"><span class="tag tp">React</span><span class="tag tp">Three.js</span><span class="tag tp">Vite</span><span class="tag tp">Streamlit</span><span class="tag tc2">HTML5/CSS3</span><span class="tag tc2">Bootstrap 5</span></div></div>
   </div>
   <div class="rrow rv" id="rings"></div>
 </div></section>
 
-<!-- ═══ PROJECTS (REAL GITHUB REPOS) ═══ -->
+<!-- PROJECTS -->
 <section id="projects" class="sp"><div class="container px-4">
   <div class="rv">
     <div class="lbl">Real GitHub Repos</div>
@@ -514,6 +500,7 @@
   </div>
   <div class="pf rv">
     <button class="pfb on" data-c="all">All <span id="ptot" style="opacity:.6;margin-left:4px;"></span></button>
+    <button class="pfb" data-c="analytics">Data Analytics</button>
     <button class="pfb" data-c="backend">Backend</button>
     <button class="pfb" data-c="cv">Computer Vision</button>
     <button class="pfb" data-c="ai">AI Agents</button>
@@ -523,12 +510,12 @@
   <div class="pg rv" id="pg"></div>
   <div style="text-align:center;margin-top:36px;" class="rv">
     <a href="https://github.com/SarathChandra26" target="_blank" class="btng" style="display:inline-flex;cursor:none;">
-      <i class="fab fa-github"></i>View All 23 Repos on GitHub
+      <i class="fab fa-github"></i>View All 23+ Repos on GitHub
     </a>
   </div>
 </div></section>
 
-<!-- ═══ EXPERIENCE ═══ -->
+<!-- EXPERIENCE -->
 <section id="experience" class="sp"><div class="container px-4">
   <div class="rv"><div class="lbl">Professional Journey</div><h2 class="sh">Experience &amp; <span>Leadership</span></h2><div class="dv"></div></div>
   <div class="row g-5">
@@ -567,7 +554,7 @@
         <div class="ec"><div class="eic">🎓</div><div>
           <div class="edg">B.Tech — Computer Science Engineering</div>
           <div class="ein">SRM Institute of Science &amp; Technology, Amaravati</div>
-          <div class="emt"><span class="eb">CGPA: 7.73 / 10</span><span class="eb">2023 – 2027</span><span class="eb">India</span></div>
+          <div class="emt"><span class="eb">CGPA: 7.9 / 10</span><span class="eb">2023 – 2027</span><span class="eb">India</span></div>
         </div></div>
       </div>
       <div class="rv">
@@ -582,7 +569,7 @@
   </div>
 </div></section>
 
-<!-- ═══ RESUME ═══ -->
+<!-- RESUME -->
 <section id="resume" class="sp"><div class="container px-4">
   <div class="rv"><div class="lbl">Career Document</div><h2 class="sh">My <span>Resume</span></h2><div class="dv"></div></div>
   <div class="rv" style="max-width:580px;margin:0 auto;text-align:center;">
@@ -597,9 +584,9 @@
       <i class="fas fa-download"></i>Download Resume
     </a>
     <div class="rss" style="margin-top:32px;">
-      <div class="rs"><div class="rsn">23</div><div class="rsl">GitHub Repos</div></div>
-      <div class="rs"><div class="rsn">7.73</div><div class="rsl">CGPA</div></div>
-      <div class="rs"><div class="rsn">5</div><div class="rsl">Certifications</div></div>
+      <div class="rs"><div class="rsn">23+</div><div class="rsl">GitHub Repos</div></div>
+      <div class="rs"><div class="rsn">7.9</div><div class="rsl">CGPA</div></div>
+      <div class="rs"><div class="rsn">8</div><div class="rsl">Certifications</div></div>
       <div class="rs"><div class="rsn">3+</div><div class="rsl">Roles</div></div>
     </div>
     <div style="margin-top:24px;padding:22px;background:var(--bgc);border:1px solid var(--bdr);border-radius:14px;text-align:left;">
@@ -607,67 +594,18 @@
       <div style="display:flex;flex-direction:column;gap:10px;">
         <div style="display:flex;gap:10px;align-items:center;"><i class="fas fa-check-circle" style="color:var(--go);font-size:.82rem;flex-shrink:0;"></i><span style="font-size:.88rem;color:var(--txt2);">Oracle Certified — Java SE 17 Developer</span></div>
         <div style="display:flex;gap:10px;align-items:center;"><i class="fas fa-check-circle" style="color:var(--go);font-size:.82rem;flex-shrink:0;"></i><span style="font-size:.88rem;color:var(--txt2);">Red Hat Certified — DevOps RH134 v9.3</span></div>
+        <div style="display:flex;gap:10px;align-items:center;"><i class="fas fa-check-circle" style="color:var(--go);font-size:.82rem;flex-shrink:0;"></i><span style="font-size:.88rem;color:var(--txt2);">IBM Data Analysis with Python · IBM SQL — Cognitive Class</span></div>
+        <div style="display:flex;gap:10px;align-items:center;"><i class="fas fa-check-circle" style="color:var(--go);font-size:.82rem;flex-shrink:0;"></i><span style="font-size:.88rem;color:var(--txt2);">Microsoft Power BI Data Preparation</span></div>
         <div style="display:flex;gap:10px;align-items:center;"><i class="fas fa-check-circle" style="color:var(--go);font-size:.82rem;flex-shrink:0;"></i><span style="font-size:.88rem;color:var(--txt2);">EA × Forage — Software Engineering Simulation</span></div>
-        <div style="display:flex;gap:10px;align-items:center;"><i class="fas fa-check-circle" style="color:var(--go);font-size:.82rem;flex-shrink:0;"></i><span style="font-size:.88rem;color:var(--txt2);">Deloitte × Forage — Technology Job Simulation</span></div>
         <div style="display:flex;gap:10px;align-items:center;"><i class="fas fa-check-circle" style="color:var(--go);font-size:.82rem;flex-shrink:0;"></i><span style="font-size:.88rem;color:var(--txt2);">Available for immediate internships</span></div>
       </div>
     </div>
   </div>
 </div></section>
 
-<!-- ═══ CERTS ═══ -->
+<!-- CERTS -->
 <section id="certs" class="sp" style="padding-top:0"><div class="container px-4">
   <div class="rv"><div class="lbl">Credentials</div><h2 class="sh">Certifications &amp; <span>Badges</span></h2><div class="dv"></div></div>
-
-  <!-- cert cards grid with enhanced styling -->
-  <style>
-    .cg2{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:20px;}
-    .cc{display:flex;align-items:flex-start;gap:16px;padding:24px;background:var(--bgc);border:1px solid var(--bdr);border-radius:16px;transition:var(--tr);position:relative;overflow:hidden;}
-    .cc::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;opacity:0;transition:opacity .4s;}
-    .cc:hover::before{opacity:1;}
-    .cc:hover{transform:translateY(-5px);background:var(--bgch);}
-    .cc-oracle::before{background:linear-gradient(90deg,#f80000,#f59e0b);}
-    .cc-oracle:hover{border-color:#f80000;box-shadow:0 0 30px rgba(248,0,0,.15);}
-    .cc-redhat::before{background:linear-gradient(90deg,#ee0000,#cc0000);}
-    .cc-redhat:hover{border-color:#ee0000;box-shadow:0 0 30px rgba(238,0,0,.15);}
-    .cc-ibm::before{background:linear-gradient(90deg,#1f70c1,#0062ff);}
-    .cc-ibm:hover{border-color:#1f70c1;box-shadow:0 0 30px rgba(31,112,193,.2);}
-    .cc-ea::before{background:linear-gradient(90deg,#ff4500,#ff6a00);}
-    .cc-ea:hover{border-color:#ff4500;box-shadow:0 0 30px rgba(255,69,0,.18);}
-    .cc-deloitte::before{background:linear-gradient(90deg,#86bc25,#43b02a);}
-    .cc-deloitte:hover{border-color:#86bc25;box-shadow:0 0 30px rgba(134,188,37,.18);}
-    .cci{width:52px;height:52px;border-radius:13px;display:flex;align-items:center;justify-content:center;font-size:1.4rem;flex-shrink:0;border:1px solid var(--bdr);}
-    .cci-oracle{background:linear-gradient(135deg,rgba(248,0,0,.15),rgba(245,158,11,.1));border-color:rgba(248,0,0,.2);}
-    .cci-redhat{background:linear-gradient(135deg,rgba(238,0,0,.15),rgba(100,0,0,.1));border-color:rgba(238,0,0,.2);}
-    .cci-ibm{background:linear-gradient(135deg,rgba(31,112,193,.15),rgba(0,98,255,.1));border-color:rgba(31,112,193,.2);}
-    .cci-ea{background:linear-gradient(135deg,rgba(255,69,0,.15),rgba(255,106,0,.1));border-color:rgba(255,69,0,.2);}
-    .cci-deloitte{background:linear-gradient(135deg,rgba(134,188,37,.15),rgba(67,176,42,.1));border-color:rgba(134,188,37,.2);}
-    .ccb{display:flex;flex-direction:column;gap:4px;flex:1;}
-    .ccn{font-family:'Syne',sans-serif;font-size:.9rem;font-weight:700;color:var(--txt);line-height:1.3;}
-    .ccis{font-family:'DM Mono',monospace;font-size:.68rem;color:var(--txt3);margin-bottom:6px;}
-    .cc-tasks{display:flex;flex-direction:column;gap:3px;margin-top:4px;}
-    .cc-task{font-size:.72rem;color:var(--txt2);display:flex;align-items:center;gap:6px;line-height:1.4;}
-    .cc-task::before{content:'▸';color:var(--ppl);font-size:.65rem;flex-shrink:0;}
-    .cc-date{display:inline-flex;align-items:center;gap:5px;font-family:'DM Mono',monospace;font-size:.6rem;color:var(--go);padding:3px 9px;background:rgba(245,158,11,.08);border:1px solid rgba(245,158,11,.2);border-radius:50px;margin-top:8px;width:fit-content;}
-    .cc-issuer{font-size:.7rem;color:var(--txt3);margin-top:3px;font-family:'DM Mono',monospace;}
-    .cc{flex-direction:column;gap:0;}
-    .cc-top{display:flex;align-items:flex-start;gap:16px;margin-bottom:14px;}
-    .cc-preview{width:100%;border-radius:10px;overflow:hidden;border:1px solid var(--bdr);margin-bottom:12px;max-height:160px;display:flex;align-items:center;justify-content:center;background:var(--bg2);}
-    .cc-preview img{width:100%;height:160px;object-fit:cover;object-position:top;display:block;transition:transform .4s ease;}
-    .cc:hover .cc-preview img{transform:scale(1.03);}
-    .cc-viewbtn{display:inline-flex;align-items:center;gap:7px;padding:8px 18px;border-radius:7px;font-family:'Syne',sans-serif;font-size:.7rem;font-weight:700;letter-spacing:1.2px;text-transform:uppercase;text-decoration:none;border:1.5px solid;transition:all .3s;cursor:pointer;width:100%;justify-content:center;}
-    .cc-oracle .cc-viewbtn{border-color:rgba(248,0,0,.4);color:#f80000;background:rgba(248,0,0,.06);}
-    .cc-oracle .cc-viewbtn:hover{background:rgba(248,0,0,.15);box-shadow:0 4px 20px rgba(248,0,0,.2);}
-    .cc-redhat .cc-viewbtn{border-color:rgba(238,0,0,.4);color:#ee0000;background:rgba(238,0,0,.06);}
-    .cc-redhat .cc-viewbtn:hover{background:rgba(238,0,0,.15);box-shadow:0 4px 20px rgba(238,0,0,.2);}
-    .cc-ibm .cc-viewbtn{border-color:rgba(31,112,193,.4);color:#1f70c1;background:rgba(31,112,193,.06);}
-    .cc-ibm .cc-viewbtn:hover{background:rgba(31,112,193,.15);}
-    .cc-ea .cc-viewbtn{border-color:rgba(255,69,0,.4);color:#ff4500;background:rgba(255,69,0,.06);}
-    .cc-ea .cc-viewbtn:hover{background:rgba(255,69,0,.15);box-shadow:0 4px 20px rgba(255,69,0,.2);}
-    .cc-deloitte .cc-viewbtn{border-color:rgba(134,188,37,.4);color:#86bc25;background:rgba(134,188,37,.06);}
-    .cc-deloitte .cc-viewbtn:hover{background:rgba(134,188,37,.15);}
-  </style>
-
   <div class="cg2 rv">
 
     <!-- Oracle -->
@@ -687,9 +625,7 @@
       <div class="cc-preview">
         <img src="https://drive.google.com/thumbnail?id=1zj5dkqtMecsysktXlQP7GJX446dNbyHo&sz=w500" alt="Oracle Certificate" loading="lazy" onerror="this.parentElement.style.display='none'"/>
       </div>
-      <a href="https://drive.google.com/file/d/1zj5dkqtMecsysktXlQP7GJX446dNbyHo/view" target="_blank" class="cc-viewbtn">
-        <i class="fas fa-external-link-alt"></i>View Certificate
-      </a>
+      <a href="https://drive.google.com/file/d/1zj5dkqtMecsysktXlQP7GJX446dNbyHo/view" target="_blank" class="cc-viewbtn"><i class="fas fa-external-link-alt"></i>View Certificate</a>
     </div>
 
     <!-- Red Hat -->
@@ -700,37 +636,90 @@
           <div class="ccn">Red Hat System Administration II</div>
           <div class="ccis">Red Hat · RH134 Ver. 9.3</div>
           <div class="cc-tasks">
-            <div class="cc-task">DevOps &amp; Linux System Admin</div>
+            <div class="cc-task">DevOps &amp; Linux System Administration</div>
             <div class="cc-task">Shell scripting · Automation · Storage</div>
           </div>
           <div class="cc-date"><i class="fas fa-certificate"></i>Red Hat · Verified</div>
         </div>
       </div>
       <div class="cc-preview">
-        <img src="https://drive.google.com/thumbnail?id=1AIT9OI2vzzlAMs-3otDcUbTKaE8leYN_&sz=w500" alt="Red Hat DevOps Certificate" loading="lazy" onerror="this.parentElement.style.display='none'"/>
+        <img src="https://drive.google.com/thumbnail?id=1AIT9OI2vzzlAMs-3otDcUbTKaE8leYN_&sz=w500" alt="Red Hat Certificate" loading="lazy" onerror="this.parentElement.style.display='none'"/>
       </div>
-      <a href="https://drive.google.com/file/d/1AIT9OI2vzzlAMs-3otDcUbTKaE8leYN_/view" target="_blank" class="cc-viewbtn">
-        <i class="fas fa-external-link-alt"></i>View Certificate
-      </a>
+      <a href="https://drive.google.com/file/d/1AIT9OI2vzzlAMs-3otDcUbTKaE8leYN_/view" target="_blank" class="cc-viewbtn"><i class="fas fa-external-link-alt"></i>View Certificate</a>
     </div>
 
-    <!-- IBM -->
+    <!-- IBM Data Analysis with Python — NEW -->
     <div class="cc cc-ibm">
       <div class="cc-top">
         <div class="cci cci-ibm">🔵</div>
         <div class="ccb">
-          <div class="ccn">IBM SkillsBuild Orientation</div>
-          <div class="ccis">Edunet Foundation · Forage</div>
+          <div class="ccn">IBM Data Analysis with Python</div>
+          <div class="ccis">IBM · Cognitive Class (DA0101EN)</div>
           <div class="cc-tasks">
-            <div class="cc-task">Software Development &amp; Problem-Solving</div>
-            <div class="cc-task">Enterprise use cases &amp; best practices</div>
+            <div class="cc-task">Data wrangling &amp; exploratory analysis</div>
+            <div class="cc-task">Pandas, NumPy, Matplotlib, Seaborn</div>
+            <div class="cc-task">Regression &amp; model evaluation</div>
           </div>
-          <div class="cc-date"><i class="fas fa-calendar"></i>May – Jul 2025</div>
+          <div class="cc-date"><i class="fas fa-calendar"></i>June 6, 2026 · ID: 4c0606378f47440ca7542da0e5a462d7</div>
         </div>
       </div>
+      <div class="cc-preview" style="display:flex;align-items:center;justify-content:center;background:linear-gradient(135deg,#0f1a2e,#1e3a5f);height:160px;">
+        <div style="text-align:center;padding:20px;">
+          <div style="font-size:2.5rem;margin-bottom:8px;">📊</div>
+          <div style="font-family:'Syne',sans-serif;font-weight:700;color:#67e8f9;font-size:.9rem;">Data Analysis with Python</div>
+          <div style="font-family:'DM Mono',monospace;font-size:.65rem;color:#1f70c1;margin-top:4px;">IBM Skills Network</div>
+        </div>
+      </div>
+      <a href="https://courses.cognitiveclass.ai/certificates/4c0606378f47440ca7542da0e5a462d7" target="_blank" class="cc-viewbtn"><i class="fas fa-external-link-alt"></i>Verify Certificate</a>
     </div>
 
-    <!-- Electronic Arts -->
+    <!-- IBM SQL — NEW -->
+    <div class="cc cc-ibm">
+      <div class="cc-top">
+        <div class="cci cci-ibm" style="font-size:1rem;font-weight:800;font-family:'Syne',sans-serif;color:#1f70c1;">SQL</div>
+        <div class="ccb">
+          <div class="ccn">IBM SQL and Relational Databases 101</div>
+          <div class="ccis">IBM Skills Network · Cognitive Class (DB0101EN)</div>
+          <div class="cc-tasks">
+            <div class="cc-task">SQL queries, joins, subqueries &amp; transactions</div>
+            <div class="cc-task">Relational database design principles</div>
+            <div class="cc-task">DDL, DML, DCL operations</div>
+          </div>
+          <div class="cc-date"><i class="fas fa-calendar"></i>June 6, 2026 · ID: 522284e7c3eb4ba0a314ef0776fa3af9</div>
+        </div>
+      </div>
+      <div class="cc-preview" style="display:flex;align-items:center;justify-content:center;background:linear-gradient(135deg,#0f1a2e,#1e3a5f);height:160px;">
+        <div style="text-align:center;padding:20px;">
+          <div style="font-size:2.5rem;margin-bottom:8px;">🗄️</div>
+          <div style="font-family:'Syne',sans-serif;font-weight:700;color:#67e8f9;font-size:.9rem;">SQL &amp; Relational Databases 101</div>
+          <div style="font-family:'DM Mono',monospace;font-size:.65rem;color:#1f70c1;margin-top:4px;">IBM Skills Network</div>
+        </div>
+      </div>
+      <a href="https://courses.cognitiveclass.ai/certificates/522284e7c3eb4ba0a314ef0776fa3af9" target="_blank" class="cc-viewbtn"><i class="fas fa-external-link-alt"></i>Verify Certificate</a>
+    </div>
+
+    <!-- Microsoft Power BI — NEW -->
+    <div class="cc cc-ms">
+      <div class="cc-top">
+        <div class="cci cci-ms">📊</div>
+        <div class="ccb">
+          <div class="ccn">Microsoft Power BI Data Preparation</div>
+          <div class="ccis">Microsoft</div>
+          <div class="cc-tasks">
+            <div class="cc-task">Data transformation &amp; Power Query</div>
+            <div class="cc-task">DAX formulas &amp; data modelling</div>
+            <div class="cc-task">Dashboard development &amp; KPI reporting</div>
+          </div>
+          <div class="cc-date"><i class="fas fa-certificate"></i>Microsoft · Verified</div>
+        </div>
+      </div>
+      <div class="cc-preview">
+        <img src="https://drive.google.com/thumbnail?id=17UKCeouWkKnaxWEmEsoXIjxZT9ol3_ur&sz=w500" alt="Microsoft Power BI Certificate" loading="lazy" onerror="this.parentElement.innerHTML='<div style=\'display:flex;align-items:center;justify-content:center;height:160px;background:linear-gradient(135deg,#0a1628,#0a2440);\'><div style=\'text-align:center;\'><div style=\'font-size:2.5rem;\'>📊</div><div style=\'font-family:Syne,sans-serif;font-weight:700;color:#00a4ef;font-size:.9rem;margin-top:8px;\'>Power BI Data Preparation</div></div></div>'"/>
+      </div>
+      <a href="https://drive.google.com/file/d/17UKCeouWkKnaxWEmEsoXIjxZT9ol3_ur/view?usp=sharing" target="_blank" class="cc-viewbtn"><i class="fas fa-external-link-alt"></i>View Certificate</a>
+    </div>
+
+    <!-- EA -->
     <div class="cc cc-ea">
       <div class="cc-top">
         <div class="cci cci-ea" style="font-size:1.1rem;font-weight:800;font-family:'Syne',sans-serif;color:#ff4500;">EA</div>
@@ -740,8 +729,7 @@
           <div class="cc-tasks">
             <div class="cc-task">Write a Feature Proposal</div>
             <div class="cc-task">Create a Game Object Class</div>
-            <div class="cc-task">Improve Inventory System</div>
-            <div class="cc-task">Live Bugfix</div>
+            <div class="cc-task">Improve Inventory System · Live Bugfix</div>
           </div>
           <div class="cc-date"><i class="fas fa-calendar"></i>April 19, 2026</div>
           <div class="cc-issuer">Code: hquWsztmWaRX3DRes</div>
@@ -750,9 +738,7 @@
       <div class="cc-preview">
         <img src="https://drive.google.com/thumbnail?id=1OYp6_WsS8hOMbqVLaUrwrCNzMh-emsmu&sz=w500" alt="EA Certificate" loading="lazy" onerror="this.parentElement.style.display='none'"/>
       </div>
-      <a href="https://drive.google.com/file/d/1OYp6_WsS8hOMbqVLaUrwrCNzMh-emsmu/view?usp=sharing" target="_blank" class="cc-viewbtn">
-        <i class="fas fa-external-link-alt"></i>View Certificate
-      </a>
+      <a href="https://drive.google.com/file/d/1OYp6_WsS8hOMbqVLaUrwrCNzMh-emsmu/view?usp=sharing" target="_blank" class="cc-viewbtn"><i class="fas fa-external-link-alt"></i>View Certificate</a>
     </div>
 
     <!-- Deloitte -->
@@ -773,25 +759,23 @@
       <div class="cc-preview">
         <img src="https://drive.google.com/thumbnail?id=18LWWXaJlGOJhCyndsa4L8jBmTr3KI4iM&sz=w500" alt="Deloitte Certificate" loading="lazy" onerror="this.parentElement.style.display='none'"/>
       </div>
-      <a href="https://drive.google.com/file/d/18LWWXaJlGOJhCyndsa4L8jBmTr3KI4iM/view?usp=sharing" target="_blank" class="cc-viewbtn">
-        <i class="fas fa-external-link-alt"></i>View Certificate
-      </a>
+      <a href="https://drive.google.com/file/d/18LWWXaJlGOJhCyndsa4L8jBmTr3KI4iM/view?usp=sharing" target="_blank" class="cc-viewbtn"><i class="fas fa-external-link-alt"></i>View Certificate</a>
     </div>
 
   </div>
 </div></section>
 
-<!-- ═══ CONTACT ═══ -->
+<!-- CONTACT -->
 <section id="contact" class="sp"><div class="container px-4">
   <div class="rv"><div class="lbl">Let's Connect</div><h2 class="sh">Get In <span>Touch</span></h2><div class="dv"></div></div>
   <div class="cog">
     <div class="rl">
-      <p class="ci">Looking for <strong>internship opportunities and collaborations</strong>. Got a backend project, CV system, automation idea, or just want to talk tech — I'm always open.</p>
+      <p class="ci">Looking for <strong>internship opportunities and collaborations</strong>. Got a backend project, CV system, data analytics challenge, or just want to talk tech — I'm always open.</p>
       <div class="cls">
         <a href="mailto:sarathchandra2006@gmail.com" class="cl"><div class="cli"><i class="fas fa-envelope"></i></div><div><div class="cll">Email</div><div class="clv">sarathchandra2006@gmail.com</div></div></a>
         <a href="tel:+916305482898" class="cl"><div class="cli"><i class="fas fa-phone"></i></div><div><div class="cll">Phone</div><div class="clv">+91 6305482898</div></div></a>
         <a href="https://linkedin.com/in/sarath-chandra-ummadishetty-081426291" target="_blank" class="cl"><div class="cli"><i class="fab fa-linkedin-in"></i></div><div><div class="cll">LinkedIn</div><div class="clv">sarath-chandra-ummadishetty</div></div></a>
-        <a href="https://github.com/SarathChandra26" target="_blank" class="cl"><div class="cli"><i class="fab fa-github"></i></div><div><div class="cll">GitHub</div><div class="clv">SarathChandra26 · 23 repos</div></div></a>
+        <a href="https://github.com/SarathChandra26" target="_blank" class="cl"><div class="cli"><i class="fab fa-github"></i></div><div><div class="cll">GitHub</div><div class="clv">SarathChandra26 · 23+ repos</div></div></a>
       </div>
     </div>
     <div class="fbox rr">
@@ -816,117 +800,124 @@
   </div>
 </div></div></footer>
 <button id="stt" onclick="window.scrollTo({top:0,behavior:'smooth'})"><i class="fas fa-arrow-up"></i></button>
+
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
 <script>
-/* ═══ DATA ═══ */
-
-// ─ REAL GitHub repos only ─
 const PROJECTS = [
+  // DATA ANALYTICS — NEW SECTION
+  {
+    id:1, cat:'analytics',
+    name:'AeroMind AI',
+    desc:'Aviation analytics platform processing 85,000+ airports & 67,000+ airline routes. Covers network planning, route profitability, passenger forecasting, revenue management and retail intelligence with executive dashboards.',
+    stack:['Python','SQL','ETL Pipelines','Power BI','Data Warehousing','Forecasting'],
+    gh:'https://github.com/SarathChandra26/AeroMindAI',
+    live:'https://sarathchandra26.github.io/AeroMindAI/frontend/index.html',
+    svg:`<svg viewBox="0 0 340 160" xmlns="http://www.w3.org/2000/svg"><rect width="340" height="160" fill="#060a14"/><rect width="340" height="24" fill="#0a1020"/><circle cx="14" cy="12" r="4" fill="#f43f5e" opacity=".8"/><circle cx="26" cy="12" r="4" fill="#f59e0b" opacity=".8"/><circle cx="38" cy="12" r="4" fill="#10b981" opacity=".8"/><text x="50" y="16" font-family="monospace" font-size="9" fill="#1e3a5f">AeroMind AI — Aviation Analytics</text><text x="10" y="42" font-family="monospace" font-size="7" fill="#4e5568">ROUTE INTELLIGENCE DASHBOARD</text><rect x="10" y="50" width="90" height="50" rx="4" fill="#0a1a2e" stroke="#1f70c1" stroke-width=".5"/><text x="55" y="65" font-family="monospace" font-size="6" fill="#67e8f9" text-anchor="middle">85K+ Airports</text><text x="55" y="77" font-family="monospace" font-size="10" fill="#1f70c1" text-anchor="middle" font-weight="bold">✈</text><text x="55" y="92" font-family="monospace" font-size="6" fill="#4e6080" text-anchor="middle">67K+ Routes</text><rect x="110" y="50" width="90" height="50" rx="4" fill="#0a1a2e" stroke="#10b981" stroke-width=".5"/><text x="155" y="65" font-family="monospace" font-size="6" fill="#6ee7b7" text-anchor="middle">Revenue Forecast</text><polyline points="118,88 130,76 142,80 154,68 166,72 178,60 190,64" fill="none" stroke="#10b981" stroke-width="1.5"/><rect x="210" y="50" width="120" height="50" rx="4" fill="#0a1a2e" stroke="#f59e0b" stroke-width=".5"/><text x="270" y="65" font-family="monospace" font-size="6" fill="#fcd34d" text-anchor="middle">Profitability Analysis</text><rect x="218" y="82" width="14" height="10" rx="1" fill="#10b981"/><rect x="236" y="74" width="14" height="18" rx="1" fill="#1f70c1"/><rect x="254" y="70" width="14" height="22" rx="1" fill="#10b981"/><rect x="272" y="78" width="14" height="14" rx="1" fill="#f59e0b"/><rect x="290" y="66" width="14" height="26" rx="1" fill="#10b981"/><rect x="308" y="72" width="12" height="20" rx="1" fill="#1f70c1"/><rect x="10" y="108" width="320" height="36" rx="4" fill="rgba(31,112,193,.04)" stroke="rgba(31,112,193,.12)" stroke-width=".5"/><text x="22" y="122" font-family="monospace" font-size="6" fill="#67e8f9">✓ ETL Pipelines · Data Warehousing · Power BI · Passenger Forecasting</text><text x="22" y="134" font-family="monospace" font-size="6" fill="#10b981">✓ Market Analysis · Network Planning · Scheduling · Retail Intelligence</text></svg>`
+  },
+  {
+    id:2, cat:'analytics',
+    name:'Customer360',
+    desc:'End-to-end customer analytics platform with RFM-based segmentation, Customer Lifetime Value (CLV) modelling, and churn risk assessment. Built ETL pipelines on large-scale retail data generating executive KPI dashboards.',
+    stack:['Python','SQL','SQLite','JavaScript','ETL','KPI Dashboards'],
+    gh:'https://github.com/SarathChandra26/Customer360',
+    live:'https://sarathchandra26.github.io/Customer360/frontend/index.html',
+    svg:`<svg viewBox="0 0 340 160" xmlns="http://www.w3.org/2000/svg"><rect width="340" height="160" fill="#060a0a"/><rect width="340" height="24" fill="#0a1414"/><circle cx="14" cy="12" r="4" fill="#f43f5e" opacity=".8"/><circle cx="26" cy="12" r="4" fill="#f59e0b" opacity=".8"/><circle cx="38" cy="12" r="4" fill="#10b981" opacity=".8"/><text x="50" y="16" font-family="monospace" font-size="9" fill="#064d4d">Customer360 — Analytics</text><text x="10" y="42" font-family="monospace" font-size="7" fill="#4e5568">CUSTOMER INTELLIGENCE PLATFORM</text><circle cx="55" cy="80" r="26" fill="none" stroke="#06b6d4" stroke-width="1" stroke-opacity=".3"/><circle cx="55" cy="80" r="26" fill="none" stroke="#10b981" stroke-width="3" stroke-dasharray="56 108" stroke-dashoffset="-20"/><circle cx="55" cy="80" r="26" fill="none" stroke="#f59e0b" stroke-width="3" stroke-dasharray="33 131" stroke-dashoffset="-76"/><circle cx="55" cy="80" r="26" fill="none" stroke="#7c3aed" stroke-width="3" stroke-dasharray="19 145" stroke-dashoffset="-109"/><text x="55" y="84" font-family="monospace" font-size="6" fill="#06b6d4" text-anchor="middle">RFM</text><rect x="100" y="40" width="230" height="20" rx="3" fill="rgba(6,182,212,.05)" stroke="rgba(6,182,212,.15)" stroke-width=".5"/><text x="108" y="54" font-family="monospace" font-size="6" fill="#67e8f9">CLV High  ████████████████  68%</text><rect x="100" y="66" width="230" height="20" rx="3" fill="rgba(16,185,129,.05)" stroke="rgba(16,185,129,.15)" stroke-width=".5"/><text x="108" y="80" font-family="monospace" font-size="6" fill="#6ee7b7">Churn Risk  ██████░░░░░░░░  23%</text><rect x="100" y="92" width="230" height="20" rx="3" fill="rgba(245,158,11,.05)" stroke="rgba(245,158,11,.15)" stroke-width=".5"/><text x="108" y="106" font-family="monospace" font-size="6" fill="#fcd34d">Retention  █████████████░  54%</text><rect x="10" y="120" width="320" height="28" rx="4" fill="rgba(6,182,212,.04)" stroke="rgba(6,182,212,.12)" stroke-width=".5"/><text x="22" y="132" font-family="monospace" font-size="6" fill="#67e8f9">✓ RFM Segmentation · CLV Modelling · Churn Prediction · KPI Dashboards</text><text x="22" y="142" font-family="monospace" font-size="6" fill="#10b981">✓ ETL Pipelines · Retail Transaction Analytics · Executive Reporting</text></svg>`
+  },
+  {
+    id:3, cat:'analytics',
+    name:'JobPulse',
+    desc:'Career intelligence platform analyzing job market trends, hiring demand, salary insights and skill requirements. Interactive dashboards for career planning and recruitment trend analysis powered by SQL analytics workflows.',
+    stack:['Python','SQL','Data Transformation','Business Intelligence','Dashboard Dev'],
+    gh:'https://github.com/SarathChandra26/JobPulse-AI',
+    live:'https://sarathchandra26.github.io/JobPulse-AI/frontend/index.html',
+    svg:`<svg viewBox="0 0 340 160" xmlns="http://www.w3.org/2000/svg"><rect width="340" height="160" fill="#06060a"/><rect width="340" height="24" fill="#0c0c18"/><circle cx="14" cy="12" r="4" fill="#f43f5e" opacity=".8"/><circle cx="26" cy="12" r="4" fill="#f59e0b" opacity=".8"/><circle cx="38" cy="12" r="4" fill="#10b981" opacity=".8"/><text x="50" y="16" font-family="monospace" font-size="9" fill="#3b1f6e">JobPulse — Career Intelligence</text><text x="10" y="42" font-family="monospace" font-size="7" fill="#4e5568">JOB MARKET ANALYTICS DASHBOARD</text><rect x="10" y="50" width="100" height="90" rx="4" fill="#0c0c18" stroke="#7c3aed" stroke-width=".5"/><text x="60" y="66" font-family="monospace" font-size="6" fill="#a78bfa" text-anchor="middle">Top Skills</text><text x="20" y="80" font-family="monospace" font-size="5.5" fill="#7c3aed">Python  ████████  84%</text><text x="20" y="90" font-family="monospace" font-size="5.5" fill="#7c3aed">SQL     ███████   72%</text><text x="20" y="100" font-family="monospace" font-size="5.5" fill="#7c3aed">React   █████     58%</text><text x="20" y="110" font-family="monospace" font-size="5.5" fill="#7c3aed">Docker  ████      49%</text><text x="20" y="120" font-family="monospace" font-size="5.5" fill="#7c3aed">AWS     ███       41%</text><text x="20" y="130" font-family="monospace" font-size="5.5" fill="#7c3aed">Power BI ███      38%</text><rect x="120" y="50" width="210" height="44" rx="4" fill="#0c0c18" stroke="#f59e0b" stroke-width=".5"/><text x="225" y="66" font-family="monospace" font-size="6" fill="#fcd34d" text-anchor="middle">Salary Trends (₹ LPA)</text><polyline points="130,84 152,76 174,80 196,70 218,72 240,62 262,65 284,58 306,60 320,55" fill="none" stroke="#f59e0b" stroke-width="1.5"/><rect x="120" y="100" width="100" height="40" rx="4" fill="#0c0c18" stroke="#10b981" stroke-width=".5"/><text x="170" y="116" font-family="monospace" font-size="6" fill="#6ee7b7" text-anchor="middle">Hiring Demand</text><text x="170" y="130" font-family="monospace" font-size="10" fill="#10b981" text-anchor="middle" font-weight="bold">↑ 34%</text><rect x="226" y="100" width="104" height="40" rx="4" fill="#0c0c18" stroke="#06b6d4" stroke-width=".5"/><text x="278" y="116" font-family="monospace" font-size="6" fill="#67e8f9" text-anchor="middle">Market Intel</text><text x="278" y="128" font-family="monospace" font-size="5.5" fill="#06b6d4" text-anchor="middle">SQL Analytics</text><text x="278" y="136" font-family="monospace" font-size="5.5" fill="#06b6d4" text-anchor="middle">Powered</text></svg>`
+  },
   // BACKEND
   {
-    id:1, cat:'backend', stars:0,
+    id:4, cat:'backend',
     name:'Telemetry Analytics Platform',
     desc:'Scalable fleet-level telemetry backend with async REST APIs, layered architecture (API → Service → Repository), PostgreSQL time-based partitioning, JSONB/GIN analytics, Redis caching, and Prometheus monitoring.',
     stack:['FastAPI','Async SQLAlchemy','PostgreSQL','Redis','ARQ','Docker','Prometheus'],
     gh:'https://github.com/SarathChandra26/telemetry-platform',
-    color:'#7c3aed', icon:'fa-satellite-dish',
     svg:`<img src="https://drive.google.com/thumbnail?id=1E0nzWu_Pk-jKeGD01052vutRpmdcMlK9&sz=w600" alt="Telemetry Analytics Platform" style="width:100%;height:160px;object-fit:cover;display:block;" loading="lazy" onerror="this.style.background='#0a0a1e'">`
   },
   // AI AGENTS
   {
-    id:2, cat:'ai', stars:2,
+    id:5, cat:'ai',
     name:'AI Document Management Agent',
     desc:'AI-powered document management workflow using n8n, OneDrive, Google Sheets, and Slack. Automates file sorting, logs activity, and sends team notifications. Features batch processing to prevent API rate limits.',
     stack:['n8n','OneDrive','Google Sheets','Slack API','REST APIs'],
     gh:'https://github.com/SarathChandra26/AI_Document_Management-Ai-Agent-',
-    color:'#f59e0b', icon:'fa-folder-open',
     svg:`<svg viewBox="0 0 340 160" xmlns="http://www.w3.org/2000/svg"><rect width="340" height="160" fill="#0f0a00"/><rect width="340" height="24" fill="#1a1000"/><circle cx="14" cy="12" r="4" fill="#f43f5e" opacity=".8"/><circle cx="26" cy="12" r="4" fill="#f59e0b" opacity=".8"/><circle cx="38" cy="12" r="4" fill="#10b981" opacity=".8"/><text x="50" y="16" font-family="monospace" font-size="9" fill="#5c4200">doc_agent.n8n</text><rect x="10" y="60" width="58" height="28" rx="5" fill="#78350f" stroke="#f59e0b" stroke-width="1"/><text x="39" y="73" font-family="monospace" font-size="6" fill="#fcd34d" text-anchor="middle">📁 OneDrive</text><text x="39" y="82" font-family="monospace" font-size="5.5" fill="#f59e0b" text-anchor="middle">Trigger</text><line x1="68" y1="74" x2="94" y2="74" stroke="#f59e0b" stroke-width="1" stroke-dasharray="3,2"/><polygon points="92,71 99,74 92,77" fill="#f59e0b"/><rect x="99" y="60" width="58" height="28" rx="5" fill="#1e3a5f" stroke="#06b6d4" stroke-width="1"/><text x="128" y="73" font-family="monospace" font-size="6" fill="#67e8f9" text-anchor="middle">🤖 AI Sort</text><text x="128" y="82" font-family="monospace" font-size="5.5" fill="#06b6d4" text-anchor="middle">Classify</text><line x1="157" y1="74" x2="183" y2="74" stroke="#06b6d4" stroke-width="1" stroke-dasharray="3,2"/><polygon points="181,71 188,74 181,77" fill="#06b6d4"/><rect x="188" y="60" width="58" height="28" rx="5" fill="#14291a" stroke="#10b981" stroke-width="1"/><text x="217" y="73" font-family="monospace" font-size="6" fill="#6ee7b7" text-anchor="middle">📊 Sheets</text><text x="217" y="82" font-family="monospace" font-size="5.5" fill="#10b981" text-anchor="middle">Log</text><line x1="246" y1="74" x2="272" y2="74" stroke="#10b981" stroke-width="1" stroke-dasharray="3,2"/><polygon points="270,71 277,74 270,77" fill="#10b981"/><rect x="277" y="60" width="52" height="28" rx="5" fill="#2d1b4e" stroke="#a78bfa" stroke-width="1"/><text x="303" y="73" font-family="monospace" font-size="6" fill="#c4b5fd" text-anchor="middle">🔔 Slack</text><text x="303" y="82" font-family="monospace" font-size="5.5" fill="#a78bfa" text-anchor="middle">Notify</text><rect x="10" y="104" width="320" height="42" rx="5" fill="rgba(245,158,11,.04)" stroke="rgba(245,158,11,.12)" stroke-width=".5"/><text x="22" y="118" font-family="monospace" font-size="6" fill="#f59e0b">✓ Files Processed: 1,247 today · Batch: 50 max (rate limit safe)</text><text x="22" y="130" font-family="monospace" font-size="6" fill="#10b981">✓ Sorted: 892 · Logged: 892 · Slack alerts: 43 · Errors: 0</text><text x="22" y="142" font-family="monospace" font-size="6" fill="#4e4568">⭐ 2 stars on GitHub</text></svg>`
   },
   {
-    id:3, cat:'ai', stars:2,
+    id:6, cat:'ai',
     name:'Email Automation AI Agent',
     desc:'AI-Powered Email Automation Agent built with n8n. Automatically categorizes, filters, and responds to emails. Supports IMAP, Gmail, Outlook & integrates with Slack and Google Sheets for logging.',
     stack:['n8n','Gmail API','IMAP','Outlook','Slack API','Google Sheets'],
     gh:'https://github.com/SarathChandra26/Email-Automation-AI-Agent-',
-    color:'#f43f5e', icon:'fa-envelope-open-text',
     svg:`<img src="https://drive.google.com/thumbnail?id=1ywcrLuDIKh8i5aI4qQ_W5ivrstuU6upO&sz=w600" alt="Email Automation AI Agent" style="width:100%;height:160px;object-fit:cover;display:block;" loading="lazy" onerror="this.style.background='#0a0a1e'">`
   },
   // COMPUTER VISION
   {
-    id:4, cat:'cv', stars:0,
+    id:7, cat:'cv',
     name:'Parking Space Picker',
     desc:'Computer vision system to detect occupied and vacant parking slots from image frames. Integrates real-time camera input for live monitoring with a dynamic availability display interface.',
     stack:['Python','OpenCV','Pickle','NumPy','cv2.VideoCapture'],
     gh:'https://github.com/SarathChandra26/ParkingSpacePicker',
-    color:'#06b6d4', icon:'fa-parking',
     svg:`<img src="https://drive.google.com/thumbnail?id=1LDs_MAf7eSDpvTN74N9u8WH_aYtdtVGu&sz=w600" alt="Parking Space Picker" style="width:100%;height:160px;object-fit:cover;display:block;" loading="lazy" onerror="this.style.background='#0a0a1e'">`
   },
   {
-    id:5, cat:'cv', stars:0,
+    id:8, cat:'cv',
     name:'Speed Detection System',
-    desc:'Real-time vehicle speed detection system using Python and OpenCV. Processes video streams to track vehicle movement, calculate speed, and flag violations. Live output overlaid on video frames.',
+    desc:'Real-time vehicle speed detection using Python and OpenCV. Processes video streams to track vehicle movement, calculate speed, and flag violations with live overlay on video frames.',
     stack:['Python','OpenCV','NumPy','cv2','Video Processing'],
     gh:'https://github.com/SarathChandra26/Speed-detection',
-    color:'#f59e0b', icon:'fa-tachometer-alt',
-    svg:`<svg viewBox="0 0 340 160" xmlns="http://www.w3.org/2000/svg"><rect width="340" height="160" fill="#0a0800"/><rect width="340" height="24" fill="#140f00"/><circle cx="14" cy="12" r="4" fill="#f43f5e" opacity=".8"/><circle cx="26" cy="12" r="4" fill="#f59e0b" opacity=".8"/><circle cx="38" cy="12" r="4" fill="#10b981" opacity=".8"/><text x="50" y="16" font-family="monospace" font-size="9" fill="#6b5200">speed_detector.py</text><rect x="10" y="30" width="200" height="100" rx="4" fill="#100c00" stroke="#f59e0b" stroke-width=".5" stroke-opacity=".4"/><text x="16" y="45" font-family="monospace" font-size="6" fill="#4e4568">VIDEO FRAME — LIVE</text><line x1="16" y1="90" x2="205" y2="90" stroke="#f59e0b" stroke-width=".5" stroke-dasharray="4,4" opacity=".4"/><line x1="16" y1="70" x2="205" y2="70" stroke="#06b6d4" stroke-width=".5" stroke-dasharray="4,4" opacity=".4"/><rect x="40" y="80" width="28" height="14" rx="2" fill="none" stroke="#10b981" stroke-width="1.5"/><text x="54" y="90" font-family="monospace" font-size="5" fill="#10b981" text-anchor="middle">32km/h</text><rect x="110" y="62" width="30" height="14" rx="2" fill="none" stroke="#f43f5e" stroke-width="1.5"/><text x="125" y="72" font-family="monospace" font-size="5" fill="#f43f5e" text-anchor="middle">68km/h⚠</text><rect x="160" y="76" width="28" height="14" rx="2" fill="none" stroke="#10b981" stroke-width="1.5"/><text x="174" y="86" font-family="monospace" font-size="5" fill="#10b981" text-anchor="middle">41km/h</text><text x="16" y="118" font-family="monospace" font-size="6" fill="#f59e0b">FPS: 30 · Vehicles: 3 · Violations: 1</text><rect x="222" y="30" width="112" height="100" rx="4" fill="#100c00" stroke="#f59e0b" stroke-width=".5" stroke-opacity=".4"/><text x="228" y="46" font-family="monospace" font-size="6" fill="#f59e0b">SPEED LOG</text><text x="228" y="60" font-family="monospace" font-size="6" fill="#10b981">CAR-01  32 km/h ✓</text><text x="228" y="72" font-family="monospace" font-size="6" fill="#f43f5e">CAR-02  68 km/h ⚠</text><text x="228" y="84" font-family="monospace" font-size="6" fill="#10b981">CAR-03  41 km/h ✓</text><text x="228" y="100" font-family="monospace" font-size="5.5" fill="#4e4568">Limit: 60 km/h</text><text x="228" y="112" font-family="monospace" font-size="5.5" fill="#4e4568">OpenCV · Python</text><text x="228" y="124" font-family="monospace" font-size="5.5" fill="#4e4568">Real-time ✓</text></svg>`
+    svg:`<svg viewBox="0 0 340 160" xmlns="http://www.w3.org/2000/svg"><rect width="340" height="160" fill="#0a0800"/><rect width="340" height="24" fill="#140f00"/><circle cx="14" cy="12" r="4" fill="#f43f5e" opacity=".8"/><circle cx="26" cy="12" r="4" fill="#f59e0b" opacity=".8"/><circle cx="38" cy="12" r="4" fill="#10b981" opacity=".8"/><text x="50" y="16" font-family="monospace" font-size="9" fill="#6b5200">speed_detector.py</text><rect x="10" y="30" width="200" height="100" rx="4" fill="#100c00" stroke="#f59e0b" stroke-width=".5" stroke-opacity=".4"/><text x="16" y="45" font-family="monospace" font-size="6" fill="#4e4568">VIDEO FRAME — LIVE</text><line x1="16" y1="90" x2="205" y2="90" stroke="#f59e0b" stroke-width=".5" stroke-dasharray="4,4" opacity=".4"/><rect x="40" y="80" width="28" height="14" rx="2" fill="none" stroke="#10b981" stroke-width="1.5"/><text x="54" y="90" font-family="monospace" font-size="5" fill="#10b981" text-anchor="middle">32km/h</text><rect x="110" y="62" width="30" height="14" rx="2" fill="none" stroke="#f43f5e" stroke-width="1.5"/><text x="125" y="72" font-family="monospace" font-size="5" fill="#f43f5e" text-anchor="middle">68km/h⚠</text><rect x="160" y="76" width="28" height="14" rx="2" fill="none" stroke="#10b981" stroke-width="1.5"/><text x="174" y="86" font-family="monospace" font-size="5" fill="#10b981" text-anchor="middle">41km/h</text><text x="16" y="118" font-family="monospace" font-size="6" fill="#f59e0b">FPS: 30 · Vehicles: 3 · Violations: 1</text><rect x="222" y="30" width="112" height="100" rx="4" fill="#100c00" stroke="#f59e0b" stroke-width=".5" stroke-opacity=".4"/><text x="228" y="46" font-family="monospace" font-size="6" fill="#f59e0b">SPEED LOG</text><text x="228" y="60" font-family="monospace" font-size="6" fill="#10b981">CAR-01  32 km/h ✓</text><text x="228" y="72" font-family="monospace" font-size="6" fill="#f43f5e">CAR-02  68 km/h ⚠</text><text x="228" y="84" font-family="monospace" font-size="6" fill="#10b981">CAR-03  41 km/h ✓</text><text x="228" y="100" font-family="monospace" font-size="5.5" fill="#4e4568">Limit: 60 km/h</text><text x="228" y="112" font-family="monospace" font-size="5.5" fill="#4e4568">OpenCV · Python</text></svg>`
   },
   {
-    id:6, cat:'cv', stars:0,
+    id:9, cat:'cv',
     name:'Plant Disease Detection Web App',
-    desc:'Full-stack web application for plant disease detection using a CNN-based deep learning model. Real-time image inference with severity classification through a Streamlit UI.',
+    desc:'Full-stack web application for plant disease detection using a CNN-based deep learning model. 90%+ accuracy across 15 categories with severity classification through Streamlit UI.',
     stack:['Python','Streamlit','TensorFlow','OpenCV','CNN','NumPy'],
     gh:'https://github.com/SarathChandra26',
-    color:'#10b981', icon:'fa-leaf',
     svg:`<img src="https://drive.google.com/thumbnail?id=1KgOI3sQB9Ol-EwGWHR3AvrqbOd-UfBuJ&sz=w600" alt="Plant Disease Detection" style="width:100%;height:160px;object-fit:cover;display:block;" loading="lazy" onerror="this.style.background='#0a0a1e'">`
   },
   {
-    id:5.5, cat:'cv', stars:0,
+    id:10, cat:'cv',
     name:'Virtual Mouse — Hand Gesture Control',
-    desc:'Touchless virtual mouse using hand-gesture recognition with OpenCV and MediaPipe. Real-time hand landmark detection maps finger movements to cursor position, enabling click, scroll, and drag via gestures — no physical mouse needed.',
+    desc:'Touchless virtual mouse using hand-gesture recognition with OpenCV and MediaPipe. Real-time hand landmark detection maps finger movements to cursor position for click, scroll and drag operations.',
     stack:['Python','OpenCV','MediaPipe','NumPy','PyAutoGUI'],
     gh:'https://github.com/SarathChandra26',
-    color:'#06b6d4', icon:'fa-hand-pointer',
-    svg:`<img src="https://drive.google.com/thumbnail?id=17l9tuqS0dtv0wNeHgGg3zUszPuc7Frv7&sz=w600" alt="Virtual Mouse (VR Mouse)" style="width:100%;height:160px;object-fit:cover;display:block;" loading="lazy" onerror="this.style.background='#0a0a1e'">`
+    svg:`<img src="https://drive.google.com/thumbnail?id=17l9tuqS0dtv0wNeHgGg3zUszPuc7Frv7&sz=w600" alt="Virtual Mouse" style="width:100%;height:160px;object-fit:cover;display:block;" loading="lazy" onerror="this.style.background='#0a0a1e'">`
   },
-  // AUTOMATION (Python)
+  // AI AUTOMATION
   {
-    id:7, cat:'ai', stars:0,
-    name:'Python Automation Scripts',
-    desc:'Collection of Python automation scripts for file management, web scraping, task scheduling, and system administration workflows. Production-ready utilities for daily automation needs.',
-    stack:['Python','OS Module','Subprocess','Schedule','BeautifulSoup'],
-    gh:'https://github.com/SarathChandra26/PYTHON_AUTOMATION',
-    color:'#a78bfa', icon:'fa-cogs',
-    svg:`<svg viewBox="0 0 340 160" xmlns="http://www.w3.org/2000/svg"><rect width="340" height="160" fill="#08061a"/><rect width="340" height="24" fill="#100d28"/><circle cx="14" cy="12" r="4" fill="#f43f5e" opacity=".8"/><circle cx="26" cy="12" r="4" fill="#f59e0b" opacity=".8"/><circle cx="38" cy="12" r="4" fill="#10b981" opacity=".8"/><text x="50" y="16" font-family="monospace" font-size="9" fill="#3d3266">automation_scripts/</text><text x="10" y="40" font-family="monospace" font-size="7" fill="#4e4568">📁 PYTHON_AUTOMATION</text><text x="20" y="54" font-family="monospace" font-size="6.5" fill="#a78bfa">├── file_organizer.py</text><text x="20" y="66" font-family="monospace" font-size="6.5" fill="#a78bfa">├── web_scraper.py</text><text x="20" y="78" font-family="monospace" font-size="6.5" fill="#a78bfa">├── task_scheduler.py</text><text x="20" y="90" font-family="monospace" font-size="6.5" fill="#a78bfa">├── sys_monitor.py</text><text x="20" y="102" font-family="monospace" font-size="6.5" fill="#a78bfa">└── batch_processor.py</text><rect x="200" y="32" width="130" height="110" rx="6" fill="#100d28" stroke="#a78bfa" stroke-width=".5" stroke-opacity=".4"/><text x="265" y="50" font-family="monospace" font-size="6" fill="#a78bfa" text-anchor="middle">RUNNING</text><text x="210" y="66" font-family="monospace" font-size="6" fill="#10b981">● file_org  active</text><text x="210" y="78" font-family="monospace" font-size="6" fill="#10b981">● scheduler  running</text><text x="210" y="90" font-family="monospace" font-size="6" fill="#f59e0b">● scraper  scheduled</text><text x="210" y="102" font-family="monospace" font-size="6" fill="#10b981">● monitor  active</text><text x="210" y="118" font-family="monospace" font-size="5.5" fill="#4e4568">Python · OS · Schedule</text><text x="210" y="130" font-family="monospace" font-size="5.5" fill="#4e4568">100% automation ✓</text></svg>`
-  },
-  // SYSTEMS / C++
-  {
-    id:8, cat:'systems', stars:0,
-    name:'Fleet Management System',
-    desc:'OOP-based fleet management system built in C++. Manages vehicle registration, driver assignments, maintenance scheduling, trip logging, and fleet analytics using core C++ principles.',
-    stack:['C++','OOP','STL','File I/O','Data Structures'],
-    gh:'https://github.com/SarathChandra26/Fleet-Management-System',
-    color:'#c084fc', icon:'fa-truck',
-    svg:`<svg viewBox="0 0 340 160" xmlns="http://www.w3.org/2000/svg"><rect width="340" height="160" fill="#0c0618"/><rect width="340" height="24" fill="#150926"/><circle cx="14" cy="12" r="4" fill="#f43f5e" opacity=".8"/><circle cx="26" cy="12" r="4" fill="#f59e0b" opacity=".8"/><circle cx="38" cy="12" r="4" fill="#10b981" opacity=".8"/><text x="50" y="16" font-family="monospace" font-size="9" fill="#4a2060">fleet_manager.cpp</text><text x="10" y="40" font-family="monospace" font-size="6.5" fill="#4e4568">// Fleet Management System — C++</text><text x="10" y="52" font-family="monospace" font-size="6.5" fill="#c084fc">class Vehicle {</text><text x="18" y="64" font-family="monospace" font-size="6.5" fill="#5e5578">  string id, type, status;</text><text x="18" y="76" font-family="monospace" font-size="6.5" fill="#5e5578">  Driver* assignedDriver;</text><text x="18" y="88" font-family="monospace" font-size="6.5" fill="#06b6d4">  void scheduleService();</text><text x="10" y="100" font-family="monospace" font-size="6.5" fill="#c084fc">};</text><rect x="195" y="32" width="140" height="110" rx="5" fill="#150926" stroke="#c084fc" stroke-width=".5" stroke-opacity=".4"/><text x="265" y="50" font-family="monospace" font-size="6" fill="#4e4568" text-anchor="middle">FLEET STATUS</text><text x="205" y="64" font-family="monospace" font-size="6" fill="#10b981">🚛 V-001  Active</text><text x="205" y="76" font-family="monospace" font-size="6" fill="#10b981">🚛 V-002  On Trip</text><text x="205" y="88" font-family="monospace" font-size="6" fill="#f59e0b">🚛 V-003  Service</text><text x="205" y="100" font-family="monospace" font-size="6" fill="#10b981">🚛 V-004  Active</text><text x="205" y="116" font-family="monospace" font-size="5.5" fill="#4e4568">OOP · STL · File I/O</text><text x="205" y="128" font-family="monospace" font-size="5.5" fill="#c084fc">C++ · Data Structures</text></svg>`
-  },
-  // FRONTEND
-  {
-    id:9, cat:'frontend', stars:0,
-    name:'3D Interactive Portfolio Website',
-    desc:'Personal 3D portfolio with Three.js visualizations, component-based React architecture, Firebase Hosting with automated CI/CD builds, and performance optimization for recruiter-facing viewing.',
-    stack:['React','Three.js','Vite','Firebase Hosting','CSS3'],
-    gh:'https://d-portfolio-12672637-588b9.web.app/',
-    color:'#10b981', icon:'fa-cube',
-    svg:`<img src="https://drive.google.com/thumbnail?id=16vCNDjGnPOg76IikCIB5JiiZvRisr5Tl&sz=w600" alt="3D Interactive Portfolio" style="width:100%;height:160px;object-fit:cover;display:block;" loading="lazy" onerror="this.style.background='#0a0a1e'">`
-  },
-  // Cloud Drive from resume
-  {
-    id:10, cat:'ai', stars:0,
+    id:11, cat:'ai',
     name:'Cloud Drive Document Management',
     desc:'AI agent for intelligent cloud document management with automated file classification, routing, and organization across cloud storage platforms using n8n workflows and REST APIs.',
     stack:['Python','n8n','REST APIs','Google APIs','Cloud Storage'],
     gh:'https://github.com/SarathChandra26/Cloud-Drive-Document-Management-AI-Agent',
-    color:'#f59e0b', icon:'fa-cloud',
     svg:`<svg viewBox="0 0 340 160" xmlns="http://www.w3.org/2000/svg"><rect width="340" height="160" fill="#0a0800"/><rect width="340" height="24" fill="#140f00"/><circle cx="14" cy="12" r="4" fill="#f43f5e" opacity=".8"/><circle cx="26" cy="12" r="4" fill="#f59e0b" opacity=".8"/><circle cx="38" cy="12" r="4" fill="#10b981" opacity=".8"/><text x="50" y="16" font-family="monospace" font-size="9" fill="#5c4200">cloud_doc_agent.n8n</text><ellipse cx="100" cy="70" rx="60" ry="30" fill="none" stroke="#f59e0b" stroke-width="1" stroke-opacity=".3"/><text x="100" y="65" font-family="monospace" font-size="8" fill="#fcd34d" text-anchor="middle">☁</text><text x="100" y="80" font-family="monospace" font-size="6" fill="#f59e0b" text-anchor="middle">Cloud Storage</text><line x1="160" y1="70" x2="188" y2="70" stroke="#f59e0b" stroke-width="1" stroke-dasharray="3,2"/><polygon points="186,67 193,70 186,73" fill="#f59e0b"/><rect x="193" y="56" width="60" height="28" rx="5" fill="#1e3a5f" stroke="#06b6d4" stroke-width="1"/><text x="223" y="69" font-family="monospace" font-size="6" fill="#67e8f9" text-anchor="middle">🤖 AI</text><text x="223" y="78" font-family="monospace" font-size="5.5" fill="#06b6d4" text-anchor="middle">Classify</text><line x1="253" y1="70" x2="278" y2="70" stroke="#10b981" stroke-width="1" stroke-dasharray="3,2"/><polygon points="276,67 283,70 276,73" fill="#10b981"/><rect x="283" y="56" width="48" height="28" rx="5" fill="#14291a" stroke="#10b981" stroke-width="1"/><text x="307" y="69" font-family="monospace" font-size="6" fill="#6ee7b7" text-anchor="middle">📁 Sort</text><text x="307" y="78" font-family="monospace" font-size="5.5" fill="#10b981" text-anchor="middle">&amp; Log</text><rect x="10" y="110" width="320" height="36" rx="5" fill="rgba(245,158,11,.04)" stroke="rgba(245,158,11,.12)" stroke-width=".5"/><text x="22" y="124" font-family="monospace" font-size="6" fill="#f59e0b">✓ Files classified &amp; routed automatically via AI agent</text><text x="22" y="136" font-family="monospace" font-size="6" fill="#10b981">✓ Google APIs · n8n · REST · Cloud Storage integrated</text></svg>`
+  },
+  // SYSTEMS
+  {
+    id:12, cat:'systems',
+    name:'Fleet Management System',
+    desc:'OOP-based fleet management system in C++. Manages vehicle registration, driver assignments, maintenance scheduling, trip logging, and fleet analytics using core C++ principles.',
+    stack:['C++','OOP','STL','File I/O','Data Structures'],
+    gh:'https://github.com/SarathChandra26/Fleet-Management-System',
+    svg:`<svg viewBox="0 0 340 160" xmlns="http://www.w3.org/2000/svg"><rect width="340" height="160" fill="#0c0618"/><rect width="340" height="24" fill="#150926"/><circle cx="14" cy="12" r="4" fill="#f43f5e" opacity=".8"/><circle cx="26" cy="12" r="4" fill="#f59e0b" opacity=".8"/><circle cx="38" cy="12" r="4" fill="#10b981" opacity=".8"/><text x="50" y="16" font-family="monospace" font-size="9" fill="#4a2060">fleet_manager.cpp</text><text x="10" y="40" font-family="monospace" font-size="6.5" fill="#4e4568">// Fleet Management System — C++</text><text x="10" y="52" font-family="monospace" font-size="6.5" fill="#c084fc">class Vehicle {</text><text x="18" y="64" font-family="monospace" font-size="6.5" fill="#5e5578">  string id, type, status;</text><text x="18" y="76" font-family="monospace" font-size="6.5" fill="#5e5578">  Driver* assignedDriver;</text><text x="18" y="88" font-family="monospace" font-size="6.5" fill="#06b6d4">  void scheduleService();</text><text x="10" y="100" font-family="monospace" font-size="6.5" fill="#c084fc">};</text><rect x="195" y="32" width="140" height="110" rx="5" fill="#150926" stroke="#c084fc" stroke-width=".5" stroke-opacity=".4"/><text x="265" y="50" font-family="monospace" font-size="6" fill="#4e4568" text-anchor="middle">FLEET STATUS</text><text x="205" y="64" font-family="monospace" font-size="6" fill="#10b981">🚛 V-001  Active</text><text x="205" y="76" font-family="monospace" font-size="6" fill="#10b981">🚛 V-002  On Trip</text><text x="205" y="88" font-family="monospace" font-size="6" fill="#f59e0b">🚛 V-003  Service</text><text x="205" y="100" font-family="monospace" font-size="6" fill="#10b981">🚛 V-004  Active</text><text x="205" y="116" font-family="monospace" font-size="5.5" fill="#4e4568">OOP · STL · File I/O</text><text x="205" y="128" font-family="monospace" font-size="5.5" fill="#c084fc">C++ · Data Structures</text></svg>`
+  },
+  // FRONTEND
+  {
+    id:13, cat:'frontend',
+    name:'3D Interactive Portfolio Website',
+    desc:'Personal 3D portfolio with Three.js visualizations, component-based React architecture, Firebase Hosting with automated CI/CD builds, and performance optimization for recruiter-facing viewing.',
+    stack:['React','Three.js','Vite','Firebase Hosting','CSS3'],
+    gh:'https://d-portfolio-12672637-588b9.web.app/',
+    live:'https://d-portfolio-12672637-588b9.web.app/',
+    svg:`<img src="https://drive.google.com/thumbnail?id=16vCNDjGnPOg76IikCIB5JiiZvRisr5Tl&sz=w600" alt="3D Interactive Portfolio" style="width:100%;height:160px;object-fit:cover;display:block;" loading="lazy" onerror="this.style.background='#0a0a1e'">`
   },
 ];
 
@@ -934,6 +925,7 @@ const LOGOS = [
   {n:'Python',i:'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/python/python-original.svg'},
   {n:'FastAPI',i:'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/fastapi/fastapi-original.svg'},
   {n:'PostgreSQL',i:'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/postgresql/postgresql-original.svg'},
+  {n:'Power BI',i:'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/azuredevops/azuredevops-original.svg'},
   {n:'Redis',i:'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/redis/redis-original.svg'},
   {n:'Docker',i:'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/docker/docker-original.svg'},
   {n:'OpenCV',i:'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/opencv/opencv-original.svg'},
@@ -945,39 +937,39 @@ const LOGOS = [
   {n:'Git',i:'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/git/git-original.svg'},
   {n:'Firebase',i:'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/firebase/firebase-original.svg'},
   {n:'Prometheus',i:'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/prometheus/prometheus-original.svg'},
-  {n:'Bootstrap',i:'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/bootstrap/bootstrap-original.svg'},
+  {n:'SQLite',i:'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/sqlite/sqlite-original.svg'},
   {n:'Vite',i:'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/vitejs/vitejs-original.svg'},
   {n:'Three.js',i:'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/threejs/threejs-original.svg'},
   {n:'GitHub',i:'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/github/github-original.svg'},
-  {n:'SQLAlchemy',i:'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/sqlalchemy/sqlalchemy-original.svg'},
 ];
 
 const RINGS = [
   {l:'Python',p:92,c:'#f59e0b'},
-  {l:'OpenCV',p:85,c:'#06b6d4'},
-  {l:'FastAPI',p:83,c:'#7c3aed'},
-  {l:'PostgreSQL',p:80,c:'#a78bfa'},
-  {l:'n8n/AI',p:78,c:'#f43f5e'},
-  {l:'React',p:72,c:'#10b981'},
+  {l:'SQL/DB',p:85,c:'#06b6d4'},
+  {l:'Power BI',p:82,c:'#00a4ef'},
+  {l:'FastAPI',p:80,c:'#7c3aed'},
+  {l:'OpenCV',p:78,c:'#10b981'},
+  {l:'n8n/AI',p:75,c:'#f43f5e'},
 ];
 
 const ROLES = [
+  'Data Analytics Engineer',
   'Full-Stack Developer',
   'AI Automation Engineer',
   'OpenCV / CV Builder',
-  'Backend Systems Dev',
+  'Business Intelligence Dev',
   'n8n AI Agent Creator',
+  'Backend Systems Dev',
   'React 3D Frontend Dev',
-  'DevOps · Docker · Linux',
 ];
 
-/* ═══ LOADER ═══ */
+/* LOADER */
 let pct=0;
 const pEl=document.getElementById('lpct');
 const pInt=setInterval(()=>{pct=Math.min(pct+Math.random()*14,100);if(pEl)pEl.textContent=Math.floor(pct)+'%';if(pct>=100)clearInterval(pInt);},110);
 window.addEventListener('load',()=>setTimeout(()=>document.getElementById('ldr').classList.add('out'),1900));
 
-/* ═══ CURSOR ═══ */
+/* CURSOR */
 const cur=document.getElementById('cur'),curR=document.getElementById('curR');
 let mx=0,my=0,rx=0,ry=0;
 document.addEventListener('mousemove',e=>{mx=e.clientX;my=e.clientY;cur.style.left=mx+'px';cur.style.top=my+'px';});
@@ -987,7 +979,7 @@ document.querySelectorAll('a,button,.pc,.cc,.sk,.tag,.tlo,.ast,.ir,.ti,.cl,.pfb,
   el.addEventListener('mouseleave',()=>document.body.classList.remove('cg'));
 });
 
-/* ═══ CANVAS PARTICLES ═══ */
+/* CANVAS PARTICLES */
 (()=>{
   const c=document.getElementById('cvs'),ctx=c.getContext('2d');
   let W,H,pts=[];
@@ -1002,7 +994,7 @@ document.querySelectorAll('a,button,.pc,.cc,.sk,.tag,.tlo,.ast,.ir,.ti,.cl,.pfb,
   };draw();
 })();
 
-/* ═══ TYPEWRITER ═══ */
+/* TYPEWRITER */
 (()=>{
   const el=document.getElementById('roleT');
   let ri=0,ci=0,deleting=false;
@@ -1014,14 +1006,14 @@ document.querySelectorAll('a,button,.pc,.cc,.sk,.tag,.tlo,.ast,.ir,.ti,.cl,.pfb,
   };type();
 })();
 
-/* ═══ MARQUEE ═══ */
+/* MARQUEE */
 (()=>{
   const t=document.getElementById('mqt');
   const html=LOGOS.map(l=>`<div class="tlo"><img src="${l.i}" alt="${l.n}" loading="lazy" onerror="this.style.display='none'"/><span>${l.n}</span></div>`).join('');
   t.innerHTML=html+html;
 })();
 
-/* ═══ RINGS ═══ */
+/* RINGS */
 (()=>{
   const wrap=document.getElementById('rings');
   const R=48,C=2*Math.PI*R,S=112;
@@ -1033,24 +1025,23 @@ document.querySelectorAll('a,button,.pc,.cc,.sk,.tag,.tlo,.ast,.ir,.ti,.cl,.pfb,
   });
 })();
 
-/* ═══ PROJECTS ═══ */
+/* PROJECTS */
 (()=>{
   const grid=document.getElementById('pg');
   const tot=document.getElementById('ptot');
-  const catCls={backend:'cb-be',cv:'cb-ml',ai:'cb-au',frontend:'cb-fe',systems:'cb-sy'};
-  const catLbl={backend:'Backend',cv:'OpenCV / CV',ai:'AI Agent',frontend:'Frontend',systems:'Systems / C++'};
+  const catCls={analytics:'cb-da',backend:'cb-be',cv:'cb-ml',ai:'cb-au',frontend:'cb-fe',systems:'cb-sy'};
+  const catLbl={analytics:'Data Analytics',backend:'Backend',cv:'OpenCV / CV',ai:'AI Agent',frontend:'Frontend',systems:'Systems / C++'};
   tot.textContent='('+PROJECTS.length+')';
-  PROJECTS.forEach(p=>{
+  PROJECTS.forEach((p,idx)=>{
     const stacks=p.stack.map(s=>`<span class="st">${s}</span>`).join('');
-    const starBadge=p.stars>0?`<span style="position:absolute;top:8px;left:12px;z-index:2;background:rgba(245,158,11,.15);border:1px solid rgba(245,158,11,.3);border-radius:4px;padding:3px 8px;font-family:'DM Mono',monospace;font-size:.6rem;color:var(--go);">⭐ ${p.stars}</span>`:'';
+    const liveBtn=p.live?`<a href="${p.live}" target="_blank" class="pla" title="Live Demo"><i class="fas fa-external-link-alt"></i></a>`:'';
     grid.innerHTML+=`<div class="pc rv" data-c="${p.cat}">
       <div class="pthumb">${p.svg}</div>
       <div class="pcb">
-        <div class="pcnum">${String(p.id).padStart(2,'0')}</div>
-        ${starBadge}
+        <div class="pcnum">${String(idx+1).padStart(2,'0')}</div>
         <div class="pctop">
           <span class="catb ${catCls[p.cat]||''}">${catLbl[p.cat]||p.cat}</span>
-          <div class="pls"><a href="${p.gh}" target="_blank" class="pla" title="GitHub"><i class="fab fa-github"></i></a><a href="${p.gh}" target="_blank" class="pla" title="View"><i class="fas fa-external-link-alt"></i></a></div>
+          <div class="pls"><a href="${p.gh}" target="_blank" class="pla" title="GitHub"><i class="fab fa-github"></i></a>${liveBtn}</div>
         </div>
         <div class="pn">${p.name}</div>
         <div class="pd">${p.desc}</div>
@@ -1070,20 +1061,20 @@ document.querySelectorAll('a,button,.pc,.cc,.sk,.tag,.tlo,.ast,.ir,.ti,.cl,.pfb,
   });
 })();
 
-/* ═══ REVEAL ═══ */
+/* REVEAL */
 const obs=new IntersectionObserver(entries=>{
   entries.forEach((e,i)=>{if(e.isIntersecting){setTimeout(()=>e.target.classList.add('up'),i*60);obs.unobserve(e.target);}});
 },{threshold:.08});
 document.querySelectorAll('.rv,.rl,.rr,.ti').forEach(el=>obs.observe(el));
 
-/* ═══ NAV ═══ */
+/* NAV */
 const nav=document.getElementById('nav');
 window.addEventListener('scroll',()=>{
   nav.classList.toggle('sc',scrollY>60);
   document.getElementById('stt').classList.toggle('sh',scrollY>400);
 });
 
-/* ═══ THEME ═══ */
+/* THEME */
 function toggleTheme(){
   const h=document.documentElement;
   h.dataset.theme=h.dataset.theme==='dark'?'light':'dark';
@@ -1092,11 +1083,11 @@ function toggleTheme(){
 const saved=localStorage.getItem('theme');
 if(saved)document.documentElement.dataset.theme=saved;
 
-/* ═══ MOBILE ═══ */
+/* MOBILE */
 function oMob(){document.getElementById('mm').classList.add('open');}
 function cMob(){document.getElementById('mm').classList.remove('open');}
 
-/* ═══ CONTACT — EmailJS ═══ */
+/* CONTACT */
 function sendMail(){
   const n=document.getElementById('fn').value.trim();
   const e=document.getElementById('fe').value.trim();
@@ -1104,52 +1095,22 @@ function sendMail(){
   const m=document.getElementById('fm').value.trim();
   const btn=document.getElementById('fsubBtn');
   const msg=document.getElementById('fmsg');
-
-  if(!n||!e||!m){
-    msg.className='fmsg err';
-    msg.textContent='⚠ Please fill in Name, Email, and Message.';
-    return;
-  }
+  if(!n||!e||!m){msg.className='fmsg err';msg.textContent='⚠ Please fill in Name, Email, and Message.';return;}
   const emailRe=/^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-  if(!emailRe.test(e)){
-    msg.className='fmsg err';
-    msg.textContent='⚠ Please enter a valid email address.';
-    return;
-  }
-
-  btn.disabled=true;
-  btn.innerHTML='Sending &nbsp;<i class="fas fa-circle-notch fa-spin"></i>';
-  msg.className='fmsg';
-
-  emailjs.send('service_zqgymf8','template_4elxiaq',{
-    from_name: n,
-    from_email: e,
-    subject: s||'Portfolio Contact — '+n,
-    message: m,
-    reply_to: e
-  }).then(()=>{
+  if(!emailRe.test(e)){msg.className='fmsg err';msg.textContent='⚠ Please enter a valid email address.';return;}
+  btn.disabled=true;btn.innerHTML='Sending &nbsp;<i class="fas fa-circle-notch fa-spin"></i>';msg.className='fmsg';
+  emailjs.send('service_zqgymf8','template_4elxiaq',{from_name:n,from_email:e,subject:s||'Portfolio Contact — '+n,message:m,reply_to:e})
+  .then(()=>{
     btn.innerHTML='Sent! &nbsp;<i class="fas fa-check"></i>';
-    msg.className='fmsg ok';
-    msg.textContent='✓ Message delivered! I\'ll get back to you soon.';
-    document.getElementById('fn').value='';
-    document.getElementById('fe').value='';
-    document.getElementById('fs').value='';
-    document.getElementById('fm').value='';
-    setTimeout(()=>{
-      btn.disabled=false;
-      btn.innerHTML='Send Message &nbsp;<i class="fas fa-paper-plane"></i>';
-    },4000);
+    msg.className='fmsg ok';msg.textContent='✓ Message delivered! I\'ll get back to you soon.';
+    document.getElementById('fn').value='';document.getElementById('fe').value='';
+    document.getElementById('fs').value='';document.getElementById('fm').value='';
+    setTimeout(()=>{btn.disabled=false;btn.innerHTML='Send Message &nbsp;<i class="fas fa-paper-plane"></i>';},4000);
   }).catch(err=>{
-    console.error('EmailJS error:',err);
-    btn.disabled=false;
-    btn.innerHTML='Send Message &nbsp;<i class="fas fa-paper-plane"></i>';
-    msg.className='fmsg err';
-    msg.textContent='✗ Failed to send. Please try emailing me directly at sarathchandra2006@gmail.com';
+    btn.disabled=false;btn.innerHTML='Send Message &nbsp;<i class="fas fa-paper-plane"></i>';
+    msg.className='fmsg err';msg.textContent='✗ Failed. Please email sarathchandra2006@gmail.com directly.';
   });
 }
-
-/* ═══ RESUME PRINT ═══ */
-function printResume(){window.print();}
 </script>
 </body>
 </html>
